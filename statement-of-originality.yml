@@ -33,11 +33,11 @@ assets:
 # for each member, write your name and uid here
 # remove any empty "name+uid" entries
 members:
-  - name:
-    uid:
-  - name:
-    uid:
-  - name:
-    uid:
-  - name:
-    uid:
+  - name: Paras Patange
+    uid: u7291471
+  - name: Raymond Improgo
+    uid: u7282825
+  - name: Raed Abdulnoor
+    uid: u7298779
+  - name: Alan Biju
+    uid: u7315765
