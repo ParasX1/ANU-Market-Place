@@ -1,4 +1,3 @@
-
 Hard features:
 
 Provide users with the ability to message each other or an institution directly (e.g., a
@@ -30,3 +29,6 @@ Easy features:
 
  The ability to micro-interact with items in your app (e.g. like/dislike/support/report a
 post/message/event) [stored in-memory]. (easy)
+
+Process visualisation. Your app may implement a graphical element to visualise the
+progress of a process/event. (easy)
