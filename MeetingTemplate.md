@@ -1,4 +1,4 @@
-# [Team Name]
+# PineAPPLE
 This following is a team meeting template. You may change this template as you like.
 
 ## Team Meeting [number] - Week [number] - [date] (start-end time)
