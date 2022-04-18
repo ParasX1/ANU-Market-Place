@@ -1,1 +1,32 @@
 
+Hard features:
+
+Provide users with the ability to message each other or an institution directly (e.g., a
+user can message an event/movement that is managed by another user). (hard)
+
+
+
+Medium features:
+
+Provide users with the ability to ‘block’ users. Preventing them from directly messaging
+them. (medium)
+
+Use Firebase to persist all data used in your app (this item replaces the requirement to
+retrieve data from a local file) (medium)
+
+The ability to send notifications based on different types of interactions (posts, likes,
+follows, abuse reports, etc). A notification must be sent only after a predetermined
+number of interactions are set (>= 2 interactions [e.g., one like and one follow or two
+likes or two follows]). Note that it is not mandatory to use the Android Notification
+classes. (medium)
+
+
+
+
+
+Easy features:
+
+ Use Firebase to implement user Authentication/Authorisation. (easy)
+
+ The ability to micro-interact with items in your app (e.g. like/dislike/support/report a
+post/message/event) [stored in-memory]. (easy)
