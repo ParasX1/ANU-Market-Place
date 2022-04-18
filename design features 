@@ -32,3 +32,12 @@ post/message/event) [stored in-memory]. (easy)
 
 Process visualisation. Your app may implement a graphical element to visualise the
 progress of a process/event. (easy)
+
+UI must have portrait and landscape layout variants as well as support for different
+screen sizes. Simply using Android studio's automated support for orientation and
+screen sizes and or creating support without effort to make them look reasonable will
+net you zero marks. (easy)
+
+ User profile activity containing a media file (image, animation (e.g. gif), video). (easy)
+
+ 
