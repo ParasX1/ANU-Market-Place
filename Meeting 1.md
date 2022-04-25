@@ -41,7 +41,8 @@ Stand up Procedure:
 
 - - Classes:
 - - User Class: (Object of user holds (uID, Full name)) (Get/Set Methods) 
-- - Listing Class: (Each listing: (key, name, price, catagory))
+- - Listing Class: (Each listing: (key, name, price, catagory, pictures id))
+- - 
 
 ## TODO Items
 | Task | Assignee |
