@@ -75,16 +75,22 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
         if(fullName.isEmpty()) {
             editFullName.setError("Oops, forgot to give me a Full Name?");
             editFullName.requestFocus();
+            return;
         }
-        if(!(uID.length() == 7)) {
+        else if(!(uID.length() == 7)) {
             editUID.setError("Invalid UID");
             editUID.requestFocus();
+            return;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()) {
+        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()) {
             editEmail.setError("Email isn't Valid");
+            editEmail.requestFocus();
+            return;
         }
-        if(password.length() < 6 || password.isEmpty()) {
+        else if(password.length() < 6 || password.isEmpty()) {
             editPassword.setError("Password is invalid");
+            editPassword.requestFocus();
+            return;
         }else {
             progressBar.setVisibility(View.VISIBLE);
             mAuth.createUserWithEmailAndPassword(email,password)
@@ -93,20 +99,19 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
                                 User user = new User(fullName,uID,password);
-                                FirebaseDatabase.getInstance().getReference("User")
+                                FirebaseDatabase.getInstance("https://genuine-plating-301723.firebaseio.com/").getReference("User")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(registerUser.this, "Successful Signup!",Toast.LENGTH_LONG).show();
-                                            //AFter this redirects to homepage
-
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(registerUser.this, "Successful Registration", Toast.LENGTH_SHORT).show();
+                                            progressBar.setVisibility(View.GONE);
                                         }else {
-                                            Toast.makeText(registerUser.this, "Failed Signup, try again",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(registerUser.this, "Error unsuccessful, try again!", Toast.LENGTH_SHORT).show();
+                                            progressBar.setVisibility(View.GONE);
                                         }
-                                        progressBar.setVisibility(View.GONE);
-                                    }
+                                    };
                                 });
                             }else {
                                 Toast.makeText(registerUser.this, "Failed Signup, try again",Toast.LENGTH_LONG).show();
