@@ -100,13 +100,12 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             Toast.makeText(registerUser.this, "Successful Signup!",Toast.LENGTH_LONG).show();
-                                            progressBar.setVisibility(View.GONE);
                                             //AFter this redirects to homepage
 
                                         }else {
                                             Toast.makeText(registerUser.this, "Failed Signup, try again",Toast.LENGTH_LONG).show();
-                                            progressBar.setVisibility(View.GONE);
                                         }
+                                        progressBar.setVisibility(View.GONE);
                                     }
                                 });
                             }else {
