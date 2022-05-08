@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ANUTree">
         <activity
+            android:name=".MoreCategoriesActivity"
+            android:exported="false" />
+        <activity
             android:name=".registerUser"
             android:exported="false" />
         <activity
