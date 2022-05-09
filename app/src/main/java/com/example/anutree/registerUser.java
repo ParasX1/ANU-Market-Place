@@ -53,7 +53,6 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar); // Initialise the loading bar
 
-
     }
 
     @Override
