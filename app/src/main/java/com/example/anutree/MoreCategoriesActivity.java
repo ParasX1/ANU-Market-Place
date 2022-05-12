@@ -2,6 +2,7 @@ package com.example.anutree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -31,6 +32,5 @@ public class MoreCategoriesActivity extends AppCompatActivity {
         ArrayAdapter categoryAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,categories);
         ListView categoryList = findViewById(R.id.listview);
         categoryList.setAdapter(categoryAdapter);
-
     }
 }

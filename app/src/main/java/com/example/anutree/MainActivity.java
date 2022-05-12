@@ -3,9 +3,11 @@ package com.example.anutree;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.MediaRouteButton;
 import android.content.Intent;
+import android.graphics.text.TextRunShaper;
 import android.os.Bundle;
-import android.os.FileUtils;
+import android.preference.EditTextPreference;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -22,11 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private FirebaseAuth mAuth;
+
+    private FirebaseAuth mAuth; // Firebase
+    private EditText editEmail;
+    private EditText editPassword;
     private ProgressBar progressBar;
-    private TextView signUp; //Signup button initialisation
-    private EditText editEmail,editPassword;
-    private Button signIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        signUp = (TextView) findViewById(R.id.Register);
+
+        //Signup button initialisation
+        TextView signUp = (TextView) findViewById(R.id.Register);
         signUp.setOnClickListener(this);
 
-        signIn = (Button) findViewById(R.id.SignInButton);
+        TextView forgotPass = (TextView) findViewById(R.id.forgotPassword);
+        forgotPass.setOnClickListener(this);
+
+        //Signin button initialisation
+        Button signIn = (Button) findViewById(R.id.SignInButton);
         signIn.setOnClickListener(this);
 
         editEmail = (EditText) findViewById(R.id.email);
@@ -45,45 +53,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar); // Initialise the loading bar
     }
-
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.Register:
                 startActivity(new Intent(this,registerUser.class));
                 break;
-            case R.id.SignInButton:
-                startActivity(new Intent(this,registerUser.class));
-                loginFunction();
+            case R.id.forgotPassword:
+                startActivity(new Intent(this,forgotPassword.class));
                 break;
+            case R.id.SignInButton:
+                logInUser();
+
         }
     }
 
-    private void loginFunction() {
-        String email = editEmail.getText().toString().trim(); // Check for valid email
-        String password = editPassword.getText().toString().trim(); // Check for Password
+    private void logInUser() {
+        String userEmail = editEmail.getText().toString().trim();
+        String userPassword = editPassword.getText().toString().trim();
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()) {
-            editEmail.setError("Email isn't Valid");
+        if (userEmail.isEmpty()) {
+            editEmail.setError("Oops you havnt given me a email address!");
             editEmail.requestFocus();
-            return;
-        }
-        if(password.length() < 6) {
-            editPassword.setError("Password is invalid");
+        }else if (userPassword.isEmpty()) {
+            editPassword.setError( "Oops you havnt given me a password!");
             editPassword.requestFocus();
-            return;
+        }else if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
+            editEmail.setError("Your email doesnt match to any in out database! REGISTER DOWN BELOW");
+            editEmail.requestFocus();
+        }else if (userPassword.length() < 6) {
+            editPassword.setError("Password too short");
+            editPassword.requestFocus();
         }
-
         progressBar.setVisibility(View.VISIBLE);
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(userEmail,userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                    Intent i = new Intent(getApplicationContext(),Activity2.class);
+                    startActivity(i);
+                    //redirect to user profile
+                    Toast.makeText(MainActivity.this,"Welcome to ANU Marketplace!", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
                 }else {
-                    Toast.makeText(MainActivity.this,"Failed to Login", Toast.LENGTH_LONG) .show();
+                    Toast.makeText(MainActivity.this,"Weird Error, Reload App!", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
                 }
+                progressBar.setVisibility(View.GONE);
             }
         });
+
+
+
+
     }
+
 }

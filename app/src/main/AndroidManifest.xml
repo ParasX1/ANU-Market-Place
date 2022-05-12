@@ -13,13 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ANUTree">
         <activity
+            android:name=".PostListingActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreatePostActivity"
             android:exported="false" />
         <activity
             android:name=".MoreCategoriesActivity"
             android:exported="false" />
         <activity
+            android:name=".MainPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".forgotPassword"
+            android:exported="false" />
+        <activity
             android:name=".registerUser"
+            android:exported="false" />
+        <activity
+            android:name=".Activity2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

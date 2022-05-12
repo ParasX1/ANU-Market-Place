@@ -6,26 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MoreCategoriesActivity">
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moreCategoryTitle" />
-
-    <TextView
-        android:id="@+id/moreCategoryTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#1A9E74"
-        android:gravity="center"
-        android:text="More Categories"
-        android:textColor="#090909"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+  <ListView
+      android:id="@+id/listview"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

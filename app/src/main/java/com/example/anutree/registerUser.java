@@ -53,7 +53,6 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar); // Initialise the loading bar
 
-
     }
 
     @Override
@@ -75,22 +74,16 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
         if(fullName.isEmpty()) {
             editFullName.setError("Oops, forgot to give me a Full Name?");
             editFullName.requestFocus();
-            return;
         }
-        else if(!(uID.length() == 7)) {
+        if(!(uID.length() == 7)) {
             editUID.setError("Invalid UID");
             editUID.requestFocus();
-            return;
         }
-        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()) {
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()) {
             editEmail.setError("Email isn't Valid");
-            editEmail.requestFocus();
-            return;
         }
-        else if(password.length() < 6 || password.isEmpty()) {
+        if(password.length() < 6 || password.isEmpty()) {
             editPassword.setError("Password is invalid");
-            editPassword.requestFocus();
-            return;
         }else {
             progressBar.setVisibility(View.VISIBLE);
             mAuth.createUserWithEmailAndPassword(email,password)
@@ -98,20 +91,22 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                User user = new User(fullName,uID,password);
-                                FirebaseDatabase.getInstance("https://genuine-plating-301723.firebaseio.com/").getReference("User")
+                                User user = new User(fullName,uID,email,password);
+                                FirebaseDatabase.getInstance().getReference("User")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()) {
-                                            Toast.makeText(registerUser.this, "Successful Registration", Toast.LENGTH_SHORT).show();
-                                            progressBar.setVisibility(View.GONE);
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(registerUser.this, "Successful Signup!",Toast.LENGTH_LONG).show();
+                                            //AFter this redirects to homepage
+                                            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                                            startActivity(i);
                                         }else {
-                                            Toast.makeText(registerUser.this, "Error unsuccessful, try again!", Toast.LENGTH_SHORT).show();
-                                            progressBar.setVisibility(View.GONE);
+                                            Toast.makeText(registerUser.this, "Failed Signup, try again",Toast.LENGTH_LONG).show();
                                         }
-                                    };
+                                        progressBar.setVisibility(View.GONE);
+                                    }
                                 });
                             }else {
                                 Toast.makeText(registerUser.this, "Failed Signup, try again",Toast.LENGTH_LONG).show();

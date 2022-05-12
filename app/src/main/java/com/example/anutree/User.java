@@ -7,10 +7,10 @@ import android.os.Parcelable;
 
 public class User implements Parcelable {
     // Makes object to store in Firebase
-    public String fullName,uID,email;
+    public String fullName,uID,email,password;
     public User() {}
 
-    public User(String fullName,String uID,String email) {
+    public User(String fullName,String uID,String email,String password) {
         this.fullName =fullName;
         this.uID =uID;
         this.email =email;
@@ -27,6 +27,7 @@ public class User implements Parcelable {
         fullName = in.readString();
         uID = in.readString();
         email = in.readString();
+        this.password =password;
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
