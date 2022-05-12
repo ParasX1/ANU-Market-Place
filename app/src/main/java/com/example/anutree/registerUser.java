@@ -100,7 +100,8 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
                                         if (task.isSuccessful()) {
                                             Toast.makeText(registerUser.this, "Successful Signup!",Toast.LENGTH_LONG).show();
                                             //AFter this redirects to homepage
-
+                                            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                                            startActivity(i);
                                         }else {
                                             Toast.makeText(registerUser.this, "Failed Signup, try again",Toast.LENGTH_LONG).show();
                                         }
