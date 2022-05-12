@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent i = new Intent(getApplicationContext(),MainPageActivity.class);
+                    Intent i = new Intent(getApplicationContext(),Activity2.class);
                     startActivity(i);
                     //redirect to user profile
                     Toast.makeText(MainActivity.this,"Welcome to ANU Marketplace!", Toast.LENGTH_LONG).show();
