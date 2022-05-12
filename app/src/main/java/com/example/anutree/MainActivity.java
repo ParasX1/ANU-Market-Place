@@ -69,38 +69,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void logInUser() {
-        String email = editEmail.getText().toString().trim();
-        String pass = editPassword.getText().toString().trim();
+        String userEmail = editEmail.getText().toString().trim();
+        String userPassword = editPassword.getText().toString().trim();
 
-        if (email.isEmpty()) {
+        if (userEmail.isEmpty()) {
             editEmail.setError("Oops you havnt given me a email address!");
             editEmail.requestFocus();
-        }else if (pass.isEmpty()) {
+        }else if (userPassword.isEmpty()) {
             editPassword.setError( "Oops you havnt given me a password!");
             editPassword.requestFocus();
-        }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        }else if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
             editEmail.setError("Your email doesnt match to any in out database! REGISTER DOWN BELOW");
             editEmail.requestFocus();
-        }else if (pass.length() < 6) {
+        }else if (userPassword.length() < 6) {
             editPassword.setError("Password too short");
             editPassword.requestFocus();
         }
         progressBar.setVisibility(View.VISIBLE);
-        mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(userEmail,userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    progressBar.setVisibility(View.GONE);
-                    Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent i = new Intent(getApplicationContext(),MainPageActivity.class);
                     startActivity(i);
                     //redirect to user profile
-                } else if (!task.isSuccessful()) {
-                    Toast.makeText(MainActivity.this,"Failed Login, Try again!", Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(MainActivity.this,"Welcome to ANU Marketplace!", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
                 }else {
                     Toast.makeText(MainActivity.this,"Weird Error, Reload App!", Toast.LENGTH_LONG).show();
-
+                    progressBar.setVisibility(View.GONE);
                 }
+                progressBar.setVisibility(View.GONE);
             }
         });
 
