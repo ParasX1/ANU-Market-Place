@@ -16,15 +16,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Map;
 import java.util.UUID;
 
 
@@ -38,6 +44,8 @@ public class CreatePostActivity extends AppCompatActivity {
     ImageView image_preview;
     Uri post_image;
     public static boolean has_selected_image = false;
+    Uri image_database_uri;
+
 
 
     @Override
@@ -60,8 +68,10 @@ public class CreatePostActivity extends AppCompatActivity {
         setTitle("Create New Post");
 //        boolean has_selected_image = false;
 
-        storage = FirebaseStorage.getInstance();
+        // we are using multiple firebase databases
+        storage = FirebaseStorage.getInstance(); // firebase storage
         storageReference = storage.getReference();
+        FirebaseFirestore db = FirebaseFirestore.getInstance(); // firestore database
 //        mAuth = FirebaseAuth.getInstance(); //Firebase
 //        FirebaseStorage storage = FirebaseStorage.getInstance();
 
@@ -72,8 +82,8 @@ public class CreatePostActivity extends AppCompatActivity {
         TextView description_input = findViewById(R.id.post_description_input);
 //        ImageView image_preview = findViewById(R.id.image_preview);
 
-        Intent current_intent = getIntent();
-        User current_user = current_intent.getParcelableExtra("current_user"); // get User object from intent
+//        Intent current_intent = getIntent();
+//        User current_user = current_intent.getParcelableExtra("current_user"); // get User object from intent
 
 
 //      photo picker
@@ -92,7 +102,7 @@ public class CreatePostActivity extends AppCompatActivity {
 
 
 //      TESTING - this prints User data to the textview for testing -- it works
-        description_input.setText(current_user.fullName + "\n" + current_user.uID + "\n" + current_user.email);
+//        description_input.setText(current_user.fullName + "\n" + current_user.uID + "\n" + current_user.email);
 
 //        need to save to database
 //        need to deal with images
@@ -108,23 +118,44 @@ public class CreatePostActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Missing Image", Toast.LENGTH_SHORT).show();
                 }
                 else { // if we're here then all inputs are valid (description can be empty for now)
+
 //                    uploading to database
                     final String random_key = UUID.randomUUID().toString(); // random key to "name" the file and to handle duplicates in the database
                     StorageReference reference = storageReference.child("images/" + random_key);
 
+                    // uploads image
                     reference.putFile(post_image)
                             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                    Toast.makeText(getApplicationContext(),"works apparently",Toast.LENGTH_SHORT);
+//                                    Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
+                                    Task<Uri> image_url = reference.getDownloadUrl();
+                                    image_url.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                        image_database_uri = uri;
+//                                        the following stores a post object to the firestore databse
+//                                        (the image is saved to the "storage" database)
+                                            // get current user (firebase)
+                                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                            assert user != null; // android studio told me to add this
+                                            String userId = user.getUid(); // this is firebase's uid NOT the user's uid
+                                            // upload post data
+                                            String title = title_input.getText().toString();
+                                            float price = Float.parseFloat(price_input.getText().toString());
+                                            String description = description_input.getText().toString();
 
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                    // Handle unsuccessful uploads
-                                    Toast.makeText(getApplicationContext(),"Something went wrong uploading image",Toast.LENGTH_SHORT);
+                                            Posts post = new Posts(title,price,description,userId,image_database_uri); // post object
+                                            db.collection("posts").add(post).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    // by here everything is saved and done
+                                                    Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                        }
+                                    });
+
                                 }
                             });
 

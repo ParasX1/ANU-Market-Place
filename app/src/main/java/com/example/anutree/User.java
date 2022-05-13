@@ -14,7 +14,7 @@ public class User implements Parcelable {
         this.fullName =fullName;
         this.uID =uID;
         this.email =email;
-
+        this.password =password;
     }
 
     /*    this class implements parcelable
@@ -27,7 +27,7 @@ public class User implements Parcelable {
         fullName = in.readString();
         uID = in.readString();
         email = in.readString();
-        this.password =password;
+        password = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {

@@ -3,13 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Raed/Desktop/ANUTree/app/src/main/res/layout/activity_2.xml" value="0.33" />
-        <entry key="..\:/Users/Raed/Desktop/ANUTree/app/src/main/res/layout/activity_post_listing.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/Raed/Desktop/ANUTree/app/src/main/res/layout/grid_item.xml" value="0.47129629629629627" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/ANUTree/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/ANUTree/app/src/main/res/layout/activity_register_user.xml" value="0.33" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.262" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_main.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_profile.xml" value="0.3625" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_register_user.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_search_page1.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/content_search_page1.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/xxtor/AndroidStudioProjects/Group Project/comp2100-group_project/app/src/main/res/layout/activity_more_categories.xml" value="0.25" />
+        <entry key="..\:/Users/xxtor/AndroidStudioProjects/Group Project/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml" value="0.17831813576494426" />
+        <entry key="..\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_2.xml" value="0.4557291666666667" />
+        <entry key="..\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_create_post.xml" value="0.33" />
+        <entry key="..\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml" value="0.4557291666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
