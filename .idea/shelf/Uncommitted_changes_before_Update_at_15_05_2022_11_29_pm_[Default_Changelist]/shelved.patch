@@ -1,0 +1,191 @@
+Index: app/src/main/java/com/example/anutree/ImageAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.anutree;\r\n\r\nimport android.content.Context;\r\nimport android.graphics.Color;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.BaseAdapter;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\n\r\npublic class ImageAdapter extends BaseAdapter {\r\n    private Context context;\r\n    private final String[] item_description = {\"belt\", \"car\", \"pc\", \"hat\", \"jeans\", \"puffer\", \"mac\", \"monitor\"};\r\n    private final String[] item_price = {\"$50\", \"$15000\", \"$2300\", \"$100\", \"$50\", \"$150\", \"$1200\", \"$300\"};\r\n    private final int[] image = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3, R.drawable.pic_4,\r\n            R.drawable.pic_5, R.drawable.pic_6, R.drawable.pic_7, R.drawable.pic_8, R.drawable.pic_9, R.drawable.pic_10};\r\n\r\n    public ImageAdapter(Context context, String[] item_description) {\r\n        this.context = context;\r\n    }\r\n\r\n    public View getView(int position, View convertView, ViewGroup parent) {\r\n\r\n        LayoutInflater inflater = (LayoutInflater) context\r\n                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);\r\n\r\n        View gridView;\r\n\r\n        if (convertView == null) {\r\n\r\n            gridView = new View(context);\r\n\r\n            // get layout from mobile.xml\r\n            gridView = inflater.inflate(R.layout.grid_item, null);\r\n\r\n            // set value into textview\r\n            TextView textView = (TextView) gridView\r\n                    .findViewById(R.id.description);\r\n            textView.setText(item_description[position]);\r\n\r\n            TextView textView_price = (TextView) gridView\r\n                    .findViewById(R.id.item_price);\r\n            textView_price.setText(item_price[position]);\r\n\r\n            // set image based on selected text\r\n            ImageView imageView = (ImageView) gridView\r\n                    .findViewById(R.id.itemPicture);\r\n\r\n            String item = item_description[position];\r\n\r\n            imageView.setImageResource(image[position]);\r\n\r\n            gridView.setBackgroundColor(Color.WHITE);\r\n\r\n\r\n\r\n\r\n\r\n        } else {\r\n            gridView = (View) convertView;\r\n        }\r\n\r\n        return gridView;\r\n    }\r\n\r\n    @Override\r\n    public int getCount() {\r\n        return item_description.length;\r\n    }\r\n\r\n    @Override\r\n    public Object getItem(int position) {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public long getItemId(int position) {\r\n        return 0;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/anutree/ImageAdapter.java b/app/src/main/java/com/example/anutree/ImageAdapter.java
+--- a/app/src/main/java/com/example/anutree/ImageAdapter.java	(revision e3c0608fa342075abf770d6ce30a27236b9aed63)
++++ b/app/src/main/java/com/example/anutree/ImageAdapter.java	(date 1652531124661)
+@@ -11,8 +11,10 @@
+ 
+ public class ImageAdapter extends BaseAdapter {
+     private Context context;
++    // for these - make length of items retrieved - maybe preset to 20? -- similar to in activity2
+     private final String[] item_description = {"belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"};
+     private final String[] item_price = {"$50", "$15000", "$2300", "$100", "$50", "$150", "$1200", "$300"};
++
+     private final int[] image = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3, R.drawable.pic_4,
+             R.drawable.pic_5, R.drawable.pic_6, R.drawable.pic_7, R.drawable.pic_8, R.drawable.pic_9, R.drawable.pic_10};
+ 
+Index: app/src/main/java/com/example/anutree/Activity2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.anutree;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.Button;\r\nimport android.widget.GridView;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\n\r\npublic class Activity2 extends AppCompatActivity {\r\n\r\n    private String[] item_description = {\"belt\", \"car\", \"pc\", \"dog\"};\r\n\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_2);\r\n\r\n        Button apperence = findViewById(R.id.trans_button_activity2);\r\n        apperence.setClickable(false);\r\n\r\n\r\n        GridView gridView = (GridView) findViewById(R.id.item_grid);\r\n\r\n        gridView.setAdapter(new ImageAdapter(this, item_description));\r\n\r\n        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {\r\n            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {\r\n                Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();\r\n                Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);\r\n                startActivity(intent);\r\n            }\r\n        });\r\n\r\n        Button post_ad = findViewById(R.id.create_ad_button);\r\n        post_ad.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                Intent goto_create_post = new Intent(getApplicationContext(),CreatePostActivity.class);\r\n                startActivity(goto_create_post);\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n\r\n\r\n    public void onMoreCategory(View view){\r\n        Intent intent = new Intent(getApplicationContext(), MoreCategoriesActivity.class);\r\n        startActivity(intent);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/anutree/Activity2.java b/app/src/main/java/com/example/anutree/Activity2.java
+--- a/app/src/main/java/com/example/anutree/Activity2.java	(revision e3c0608fa342075abf770d6ce30a27236b9aed63)
++++ b/app/src/main/java/com/example/anutree/Activity2.java	(date 1652531688565)
+@@ -17,8 +17,8 @@
+ 
+ public class Activity2 extends AppCompatActivity {
+ 
+-    private String[] item_description = {"belt", "car", "pc", "dog"};
+-
++    private String[] item_description = {"belt", "car", "pc", "dog"}; // make length of items retrieved - maybe preset to 20?
++// make array of post titles and link them to database post idk - post uid
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -37,6 +37,8 @@
+             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                 Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();
+                 Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
++                // need a way to know which post to go to
++                // get the position of the array (given) and maybe go off that
+                 startActivity(intent);
+             }
+         });
+Index: app/src/main/java/com/example/anutree/CreatePostActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.anutree;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.provider.MediaStore;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.android.material.snackbar.Snackbar;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\nimport com.google.firebase.storage.FirebaseStorage;\r\nimport com.google.firebase.storage.StorageReference;\r\nimport com.google.firebase.storage.UploadTask;\r\n\r\nimport java.util.Map;\r\nimport java.util.UUID;\r\n\r\n\r\npublic class CreatePostActivity extends AppCompatActivity {\r\n\r\n    public static final int PICK_IMAGE_REQUEST_CODE = 99;\r\n\r\n    private FirebaseAuth mAuth;\r\n    private FirebaseStorage storage;\r\n    private StorageReference storageReference;\r\n    ImageView image_preview;\r\n    Uri post_image;\r\n    public static boolean has_selected_image = false;\r\n    Uri image_database_uri;\r\n\r\n\r\n\r\n    @Override\r\n    protected void onActivityResult(int requestCode, int resultCode, Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n        if (resultCode == RESULT_OK && data != null){\r\n            Uri selected_image = data.getData();\r\n            post_image = selected_image; // saving it for later\r\n            ImageView image_preview = findViewById(R.id.image_preview);\r\n            image_preview.setImageURI(selected_image);\r\n\r\n\r\n        }\r\n    }\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_create_post);\r\n        setTitle(\"Create New Post\");\r\n//        boolean has_selected_image = false;\r\n\r\n        // we are using multiple firebase databases\r\n        storage = FirebaseStorage.getInstance(); // firebase storage\r\n        storageReference = storage.getReference();\r\n        FirebaseFirestore db = FirebaseFirestore.getInstance(); // firestore database\r\n//        mAuth = FirebaseAuth.getInstance(); //Firebase\r\n//        FirebaseStorage storage = FirebaseStorage.getInstance();\r\n\r\n        TextView title_input = findViewById(R.id.post_title_input);\r\n        TextView price_input = findViewById(R.id.post_price_input);\r\n        Button image_button = findViewById(R.id.image_button);\r\n        Button create_post_button = findViewById(R.id.create_post_button);\r\n        TextView description_input = findViewById(R.id.post_description_input);\r\n//        ImageView image_preview = findViewById(R.id.image_preview);\r\n\r\n//        Intent current_intent = getIntent();\r\n//        User current_user = current_intent.getParcelableExtra(\"current_user\"); // get User object from intent\r\n\r\n\r\n//      photo picker\r\n        image_button.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n//                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);\r\n                Intent intent = new Intent();\r\n                intent.setType(\"image/*\");\r\n                intent.setAction(Intent.ACTION_GET_CONTENT);\r\n                startActivityForResult(intent,PICK_IMAGE_REQUEST_CODE);\r\n                has_selected_image = true;\r\n                Log.d(\"image yo\", \"SHOULD BE TRUE\");\r\n            }\r\n        });\r\n\r\n\r\n//      TESTING - this prints User data to the textview for testing -- it works\r\n//        description_input.setText(current_user.fullName + \"\\n\" + current_user.uID + \"\\n\" + current_user.email);\r\n\r\n//        need to save to database\r\n//        need to deal with images\r\n\r\n        create_post_button.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n//                check if all entries valid\r\n                if (title_input.getText().toString().equals(\"\") || price_input.getText().toString().equals(\"\")){\r\n                    Toast.makeText(getApplicationContext(), \"Invalid Input\", Toast.LENGTH_SHORT).show();\r\n                }\r\n                else if (!has_selected_image){\r\n                    Toast.makeText(getApplicationContext(), \"Missing Image\", Toast.LENGTH_SHORT).show();\r\n                }\r\n                else { // if we're here then all inputs are valid (description can be empty for now)\r\n\r\n//                    uploading to database\r\n                    final String random_key = UUID.randomUUID().toString(); // random key to \"name\" the file and to handle duplicates in the database\r\n                    StorageReference reference = storageReference.child(\"images/\" + random_key);\r\n\r\n                    // uploads image\r\n                    reference.putFile(post_image)\r\n                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {\r\n                                @Override\r\n                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {\r\n//                                    Toast.makeText(getApplicationContext(), \"Post Created\", Toast.LENGTH_SHORT).show();\r\n                                    Task<Uri> image_url = reference.getDownloadUrl();\r\n                                    image_url.addOnSuccessListener(new OnSuccessListener<Uri>() {\r\n                                        @Override\r\n                                        public void onSuccess(Uri uri) {\r\n                                        image_database_uri = uri;\r\n//                                        the following stores a post object to the firestore databse\r\n//                                        (the image is saved to the \"storage\" database)\r\n                                            // get current user (firebase)\r\n                                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();\r\n                                            assert user != null; // android studio told me to add this\r\n                                            String userId = user.getUid(); // this is firebase's uid NOT the user's uid\r\n                                            // upload post data\r\n                                            String title = title_input.getText().toString();\r\n                                            float price = Float.parseFloat(price_input.getText().toString());\r\n                                            String description = description_input.getText().toString();\r\n\r\n                                            Posts post = new Posts(title,price,description,userId,image_database_uri); // post object\r\n                                            db.collection(\"posts\").add(post).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {\r\n                                                @Override\r\n                                                public void onSuccess(DocumentReference documentReference) {\r\n                                                    // by here everything is saved and done\r\n                                                    Toast.makeText(getApplicationContext(), \"Post Created\", Toast.LENGTH_SHORT).show();\r\n                                                }\r\n                                            });\r\n                                        }\r\n                                    });\r\n\r\n                                }\r\n                            });\r\n\r\n                }\r\n\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/anutree/CreatePostActivity.java b/app/src/main/java/com/example/anutree/CreatePostActivity.java
+--- a/app/src/main/java/com/example/anutree/CreatePostActivity.java	(revision e3c0608fa342075abf770d6ce30a27236b9aed63)
++++ b/app/src/main/java/com/example/anutree/CreatePostActivity.java	(date 1652528900803)
+@@ -101,12 +101,6 @@
+         });
+ 
+ 
+-//      TESTING - this prints User data to the textview for testing -- it works
+-//        description_input.setText(current_user.fullName + "\n" + current_user.uID + "\n" + current_user.email);
+-
+-//        need to save to database
+-//        need to deal with images
+-
+         create_post_button.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+@@ -134,12 +128,13 @@
+                                         @Override
+                                         public void onSuccess(Uri uri) {
+                                         image_database_uri = uri;
+-//                                        the following stores a post object to the firestore databse
++//                                        the following stores a post object to the firestore database
+ //                                        (the image is saved to the "storage" database)
+                                             // get current user (firebase)
+                                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                             assert user != null; // android studio told me to add this
+                                             String userId = user.getUid(); // this is firebase's uid NOT the user's uid
++//                                            Log.d("user name",user.getDisplayName());
+                                             // upload post data
+                                             String title = title_input.getText().toString();
+                                             float price = Float.parseFloat(price_input.getText().toString());
+@@ -151,6 +146,8 @@
+                                                 public void onSuccess(DocumentReference documentReference) {
+                                                     // by here everything is saved and done
+                                                     Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
++                                                    // go back to previous activity
++
+                                                 }
+                                             });
+                                         }
+@@ -158,7 +155,6 @@
+ 
+                                 }
+                             });
+-
+                 }
+ 
+             }
+Index: app/src/main/java/com/example/anutree/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.anutree;\r\n\r\nimport static java.lang.System.out;\r\n\r\nimport android.os.Parcel;\r\nimport android.os.Parcelable;\r\n\r\npublic class User implements Parcelable {\r\n    // Makes object to store in Firebase\r\n    public String fullName,uID,email,password;\r\n    public User() {}\r\n\r\n    public User(String fullName,String uID,String email,String password) {\r\n        this.fullName =fullName;\r\n        this.uID =uID;\r\n        this.email =email;\r\n        this.password =password;\r\n    }\r\n\r\n    /*    this class implements parcelable\r\n            the following is from the following link:\r\n            https://developer.android.com/reference/android/os/Parcelable\r\n            this is so we can add a User object as an extra to an intent (through parcelable)\r\n       */\r\n\r\n    protected User(Parcel in) {\r\n        fullName = in.readString();\r\n        uID = in.readString();\r\n        email = in.readString();\r\n        password = in.readString();\r\n    }\r\n\r\n    public static final Creator<User> CREATOR = new Creator<User>() {\r\n        @Override\r\n        public User createFromParcel(Parcel in) {\r\n            return new User(in);\r\n        }\r\n\r\n        @Override\r\n        public User[] newArray(int size) {\r\n            return new User[size];\r\n        }\r\n    };\r\n\r\n    @Override\r\n    public int describeContents() {\r\n        return 0;\r\n    }\r\n\r\n    @Override\r\n    public void writeToParcel(Parcel parcel, int i) {\r\n        parcel.writeString(fullName);\r\n        parcel.writeString(uID);\r\n        parcel.writeString(email);\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/anutree/User.java b/app/src/main/java/com/example/anutree/User.java
+--- a/app/src/main/java/com/example/anutree/User.java	(revision e3c0608fa342075abf770d6ce30a27236b9aed63)
++++ b/app/src/main/java/com/example/anutree/User.java	(date 1652529550600)
+@@ -5,7 +5,7 @@
+ import android.os.Parcel;
+ import android.os.Parcelable;
+ 
+-public class User implements Parcelable {
++public class User {
+     // Makes object to store in Firebase
+     public String fullName,uID,email,password;
+     public User() {}
+@@ -17,47 +17,4 @@
+         this.password =password;
+     }
+ 
+-    /*    this class implements parcelable
+-            the following is from the following link:
+-            https://developer.android.com/reference/android/os/Parcelable
+-            this is so we can add a User object as an extra to an intent (through parcelable)
+-       */
+-
+-    protected User(Parcel in) {
+-        fullName = in.readString();
+-        uID = in.readString();
+-        email = in.readString();
+-        password = in.readString();
+-    }
+-
+-    public static final Creator<User> CREATOR = new Creator<User>() {
+-        @Override
+-        public User createFromParcel(Parcel in) {
+-            return new User(in);
+-        }
+-
+-        @Override
+-        public User[] newArray(int size) {
+-            return new User[size];
+-        }
+-    };
+-
+-    @Override
+-    public int describeContents() {
+-        return 0;
+-    }
+-
+-    @Override
+-    public void writeToParcel(Parcel parcel, int i) {
+-        parcel.writeString(fullName);
+-        parcel.writeString(uID);
+-        parcel.writeString(email);
+-    }
+-
+-
+-
+-
+-
+-
+-
+ }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/ANUTree/app/src/main/res/layout/activity_main.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/ANUTree/app/src/main/res/layout/activity_register_user.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/drawable/ic_launcher_background.xml\" value=\"0.262\" />\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_main.xml\" value=\"0.3582427536231884\" />\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_profile.xml\" value=\"0.3625\" />\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_register_user.xml\" value=\"0.3582427536231884\" />\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_search_page1.xml\" value=\"0.1762917933130699\" />\r\n        <entry key=\"..\\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/content_search_page1.xml\" value=\"0.1762917933130699\" />\r\n        <entry key=\"..\\:/Users/xxtor/AndroidStudioProjects/Group Project/comp2100-group_project/app/src/main/res/layout/activity_more_categories.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/xxtor/AndroidStudioProjects/Group Project/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml\" value=\"0.17831813576494426\" />\r\n        <entry key=\"..\\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_2.xml\" value=\"0.4557291666666667\" />\r\n        <entry key=\"..\\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_create_post.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml\" value=\"0.4557291666666667\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e3c0608fa342075abf770d6ce30a27236b9aed63)
++++ b/.idea/misc.xml	(date 1652530717182)
+@@ -15,6 +15,7 @@
+         <entry key="..\:/Users/xxtor/AndroidStudioProjects/Group Project/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml" value="0.17831813576494426" />
+         <entry key="..\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_2.xml" value="0.4557291666666667" />
+         <entry key="..\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_create_post.xml" value="0.33" />
++        <entry key="..\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_post_listing.xml" value="0.4557291666666667" />
+         <entry key="..\:/comp 2100 stuff/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml" value="0.4557291666666667" />
+       </map>
+     </option>
