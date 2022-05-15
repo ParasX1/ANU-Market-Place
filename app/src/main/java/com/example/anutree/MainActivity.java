@@ -95,7 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //redirect to user profile
                     Toast.makeText(MainActivity.this,"Welcome to ANU Marketplace!", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
-                }else {
+                }else if (!task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this,"Sign In Error, Try again!", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                } else{
                     Toast.makeText(MainActivity.this,"Weird Error, Reload App!", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
