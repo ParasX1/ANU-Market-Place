@@ -25,8 +25,8 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-        Button apperence = findViewById(R.id.trans_button_activity2);
-        apperence.setClickable(false);
+        Button appearance = findViewById(R.id.trans_button_activity2);
+        appearance.setClickable(false);
 
 
         GridView gridView = (GridView) findViewById(R.id.item_grid);
@@ -37,6 +37,13 @@ public class Activity2 extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
+                // somehow pass post data
+//                Object please = parent.getItemAtPosition(position);
+                Object please = parent.getAdapter().getItem(position);
+
+                Log.d("uhm", Integer.toString(position));
+//                Log.d("uhm", please.toString());
+
                 startActivity(intent);
             }
         });

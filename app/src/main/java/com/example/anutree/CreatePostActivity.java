@@ -145,11 +145,12 @@ public class CreatePostActivity extends AppCompatActivity {
                                             float price = Float.parseFloat(price_input.getText().toString());
                                             String description = description_input.getText().toString();
 
-                                            Posts post = new Posts(title,price,description,userId,image_database_uri); // post object
+                                            Posts post = new Posts(title,price,0,description,userId,image_database_uri); // post object
                                             db.collection("posts").add(post).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                 @Override
                                                 public void onSuccess(DocumentReference documentReference) {
                                                     // by here everything is saved and done
+                                                    finish();
                                                     Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
                                                 }
                                             });

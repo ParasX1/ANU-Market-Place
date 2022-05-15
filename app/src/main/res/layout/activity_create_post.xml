@@ -28,7 +28,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/post_price"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

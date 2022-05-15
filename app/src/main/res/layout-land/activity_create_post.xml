@@ -29,7 +29,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/post_price"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:minHeight="48dp"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
