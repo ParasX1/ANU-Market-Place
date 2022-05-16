@@ -7,20 +7,6 @@
     android:background="#D3D3D3"
     tools:context=".Activity2">
 
-    <SearchView
-        android:id="@+id/Search_bar_activitiy_2"
-        android:layout_width="400dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="25dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/trans_button_activity2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/trans_button_activity2"
         android:layout_width="401dp"
@@ -144,6 +130,36 @@
         app:layout_constraintTop_toBottomOf="@+id/item_grid"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <SearchView
+        android:id="@+id/Search_bar"
+        android:layout_width="354dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/trans_button_activity2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <Button
+        android:id="@+id/user_info"
+        android:layout_width="38dp"
+        android:layout_height="54dp"
+        android:drawableTop="@drawable/info"
+        android:onClick="on_more_info"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button_car"
+        app:layout_constraintEnd_toStartOf="@+id/Search_bar"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

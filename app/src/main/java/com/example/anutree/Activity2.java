@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,6 @@ public class Activity2 extends AppCompatActivity {
 //    private String[] item_description = {"belt", "car", "pc", "dog"};
 //        private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList("belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"));
 //    private String[] item_description = {"belt"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,28 @@ public class Activity2 extends AppCompatActivity {
             }
         });
 
+
+        final SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                // This is where the parser and tokenizer stuff is goes i guess???
+                if (s.equals("cat")){ // just some random test
+                    Intent intent = new Intent(getApplicationContext(), MainChat.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return true;
+            }
+        };
+
+        SearchView search = (SearchView) findViewById(R.id.Search_bar);
+        search.setOnQueryTextListener(queryTextListener);
+
+
         Button message = findViewById(R.id.button_car);  // MESSAGING APP CUZ WE DONT HAVE A BUTTON YET
         message.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +97,7 @@ public class Activity2 extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
     private void getDatabaseData() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -144,5 +167,9 @@ public class Activity2 extends AppCompatActivity {
     }
 
 
-
+    public void on_more_info(View view) {
+        Intent to_user_info = new Intent(getApplicationContext(), UserInformation.class);
+        // perhaps transfer information in this intent if needed
+        startActivity(to_user_info);
+    }
 }

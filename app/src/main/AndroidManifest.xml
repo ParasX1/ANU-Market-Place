@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ANUTree">
         <activity
+            android:name=".UserInformation"
+            android:exported="false" />
+        <activity
             android:name=".MessageProfile"
             android:exported="false" />
         <activity

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3"
+    tools:context=".UserInformation">
+
+    <TextView
+        android:id="@+id/hello_user"
+        android:layout_width="298dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="24dp"
+        android:elevation="4dp"
+        android:text="Hello &quot;Name of user here&quot;"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="414dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="508dp"
+        android:clickable="false"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/user_email"
+        android:layout_width="298dp"
+        android:layout_height="29dp"
+        android:elevation="4dp"
+        android:text="&quot;user email here&quot;"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hello_user" />
+
+    <Button
+        android:id="@+id/user_my_posts"
+        android:layout_width="394dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:drawableLeft="@drawable/camera1"
+        android:text="My Posts"
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        tools:text="My Posts" />
+
+    <Button
+        android:id="@+id/user_my_messages"
+        android:layout_width="394dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/chat"
+        android:text="My Messages"
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_my_posts" />
+
+    <Button
+        android:id="@+id/user_saved_posts"
+        android:layout_width="394dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/star"
+        android:text="Saved Posts"
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_my_messages" />
+</androidx.constraintlayout.widget.ConstraintLayout>
