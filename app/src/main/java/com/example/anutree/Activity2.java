@@ -47,24 +47,45 @@ public class Activity2 extends AppCompatActivity {
         getDatabaseData();
 
 
+        Button signOut = findViewById(R.id.signOut_button);  //SignOut implementations using Firebase .signout method
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        Button message = findViewById(R.id.button_car);  // MESSAGING APP CUZ WE DONT HAVE A BUTTON YET
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view){
+            Intent i = new Intent(getApplicationContext(), MainChat.class);
+            startActivity(i);
+        }
+        });
+
 
     }
 
-    public void onMoreCategory(View view){
+    public void onMoreCategory(View view) {
         Intent intent = new Intent(getApplicationContext(), MoreCategoriesActivity.class);
         startActivity(intent);
 
     }
-    private void getDatabaseData(){
+
+    private void getDatabaseData() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
 
-        Log.d("uhm","THIS SHOUDL BE DESIPLASDYD");
-        db.collection("posts").whereNotEqualTo("likes",-1).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        Log.d("uhm", "THIS SHOUDL BE DESIPLASDYD");
+        db.collection("posts").whereNotEqualTo("likes", -1).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
-                    for (QueryDocumentSnapshot document : task.getResult()){
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
 //                        Log.d("uhm",document.toObject(Posts.class).toString());
 //                        Log.d("uhm",document.getData().toString());
                         Map<String, Object> p = document.getData();
@@ -77,8 +98,8 @@ public class Activity2 extends AppCompatActivity {
                         int likes = (int) ((long) p.get("likes"));
                         String uid = ((String) p.get("uid"));
                         String desc = ((String) p.get("description"));
-                        Posts post = new Posts(title,price,likes,desc,uid,p_uri,author);
-                        Log.d("uhm",post.toString());
+                        Posts post = new Posts(title, price, likes, desc, uid, p_uri, author);
+                        Log.d("uhm", post.toString());
                         // add post to arraylist
                         postList.add(post);
 
@@ -112,9 +133,8 @@ public class Activity2 extends AppCompatActivity {
 
                         }
                     });
-                }
-                else {
-                    Log.d("uhm","Not workking", task.getException());
+                } else {
+                    Log.d("uhm", "Not workking", task.getException());
                 }
 
             }
@@ -122,6 +142,7 @@ public class Activity2 extends AppCompatActivity {
 
 //        return postList;
     }
+
 
 
 }

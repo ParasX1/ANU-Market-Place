@@ -13,6 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ANUTree">
         <activity
+            android:name=".MessageProfile"
+            android:exported="false" />
+        <activity
+            android:name=".MainChat"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateProfile"
+            android:exported="false" />
+        <activity
+            android:name=".FriendsList"
+            android:exported="false" />
+        <activity
             android:name=".PostListingActivity"
             android:exported="false" />
         <activity

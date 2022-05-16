@@ -52,6 +52,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editPassword = (EditText) findViewById(R.id.password);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar); // Initialise the loading bar
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+            Intent i = new Intent(getApplicationContext(),Activity2.class);
+            startActivity(i);
+            //redirect to user profile if already signed in
+            Toast.makeText(MainActivity.this,"Welcome to ANU Marketplace!", Toast.LENGTH_LONG).show();
+            progressBar.setVisibility(View.GONE);
+        }
     }
     @Override
     public void onClick(View view) {
