@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -11,11 +12,12 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Activity2 extends AppCompatActivity {
 
     private String[] item_description = {"belt", "car", "pc", "dog"};
-
-
 
 
     @Override
@@ -39,6 +41,14 @@ public class Activity2 extends AppCompatActivity {
             }
         });
 
+        Button post_ad = findViewById(R.id.create_ad_button);
+        post_ad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goto_create_post = new Intent(getApplicationContext(),CreatePostActivity.class);
+                startActivity(goto_create_post);
+            }
+        });
 
 
     }

@@ -22,8 +22,7 @@ public class ImageAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View gridView;
 
@@ -35,17 +34,14 @@ public class ImageAdapter extends BaseAdapter {
             gridView = inflater.inflate(R.layout.grid_item, null);
 
             // set value into textview
-            TextView textView = (TextView) gridView
-                    .findViewById(R.id.description);
+            TextView textView = (TextView) gridView.findViewById(R.id.description);
             textView.setText(item_description[position]);
 
-            TextView textView_price = (TextView) gridView
-                    .findViewById(R.id.item_price);
+            TextView textView_price = (TextView) gridView.findViewById(R.id.item_price);
             textView_price.setText(item_price[position]);
 
             // set image based on selected text
-            ImageView imageView = (ImageView) gridView
-                    .findViewById(R.id.itemPicture);
+            ImageView imageView = (ImageView) gridView.findViewById(R.id.itemPicture);
 
             String item = item_description[position];
 

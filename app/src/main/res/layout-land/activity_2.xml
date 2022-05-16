@@ -9,31 +9,31 @@
 
     <SearchView
         android:id="@+id/Search_bar_activitiy_2"
-        android:layout_width="400dp"
-        android:layout_height="53dp"
+        android:layout_width="629dp"
+        android:layout_height="31dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="25dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/trans_button_activity2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/trans_button_activity2"
-        android:layout_width="401dp"
-        android:layout_height="92dp"
+        android:layout_width="630dp"
+        android:layout_height="86dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintVertical_bias="0.191" />
 
     <Button
         android:id="@+id/button_car"
@@ -108,17 +108,17 @@
 
     <GridView
         android:id="@+id/item_grid"
-        android:layout_width="404dp"
-        android:layout_height="418dp"
+        android:layout_width="661dp"
+        android:layout_height="188dp"
         android:horizontalSpacing="15dp"
         android:numColumns="2"
         android:verticalSpacing="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trans_button_activity2"
-        app:layout_constraintVertical_bias="0.135" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/create_ad_button"
@@ -127,7 +127,6 @@
         android:text="Post Ad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_grid"
         app:layout_constraintVertical_bias="0.0" />

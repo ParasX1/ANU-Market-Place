@@ -17,9 +17,9 @@ collaboration:
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external code)
 code:
-  - comment:
-    url:
-    licence:
+  - comment: glide library for image loading and decoding (and more). used for retrieving images from firebase database
+    url: https://github.com/bumptech/glide
+    licence: http://www.apache.org/licenses/LICENSE-2.0
 
 
 # add as many "url+licence+comment" entries as necessary

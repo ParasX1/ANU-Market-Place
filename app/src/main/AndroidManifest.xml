@@ -16,6 +16,9 @@
             android:name=".PostListingActivity"
             android:exported="false" />
         <activity
+            android:name=".CreatePostActivity"
+            android:exported="false" />
+        <activity
             android:name=".MoreCategoriesActivity"
             android:exported="false" />
         <activity
