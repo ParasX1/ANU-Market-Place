@@ -146,11 +146,15 @@ public class CreatePostActivity extends AppCompatActivity {
                                             String description = description_input.getText().toString();
 
                                             Posts post = new Posts(title,price,0,description,userId,image_database_uri); // post object
+//                                            finish();
+                                            Intent go_back = new Intent(getApplicationContext(),Activity2.class);
+                                            startActivity(go_back); // this is done so the previous activity is restarted and "refreshed"
+
                                             db.collection("posts").add(post).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                 @Override
                                                 public void onSuccess(DocumentReference documentReference) {
                                                     // by here everything is saved and done
-                                                    finish();
+
                                                     Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
                                                 }
                                             });

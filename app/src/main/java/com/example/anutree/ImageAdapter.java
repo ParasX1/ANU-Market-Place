@@ -3,6 +3,7 @@ package com.example.anutree;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+
+//import com.bumptech.glide.Glide;
+import com.bumptech.glide.Glide;
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -23,32 +28,37 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 public class ImageAdapter extends BaseAdapter {
     private Context context;
 
-    String why = getDatabaseData();
+//    ArrayList<Posts> posts = getDatabaseData(); // initialise list of posts
+//    private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList("belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"));
+//    private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList(posts.get(0).title,posts.get(1).title));
+//    private ArrayList<String> item_price;
+    private final ArrayList<Posts> item_description;
 
-    private final String[] item_description = {"belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"};
-    private final String[] item_price = {"$50", "$15000", "$2300", "$100", "$50", "$150", "$1200", "$300"};
-    private final int[] image = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3, R.drawable.pic_4,
-            R.drawable.pic_5, R.drawable.pic_6, R.drawable.pic_7, R.drawable.pic_8, R.drawable.pic_9, R.drawable.pic_10};
 
 
-    // make all of above lists
-    // need to initialise arraylists
-    // get from database
-    // list of objects
-    // send post uid through intent???
-    Uri please = Uri.parse("gs://genuine-plating-301723.appspot.com/images/29899b71-c037-42a4-a789-af186b7dc35e");
-    Posts hi = new Posts("test",Float.valueOf(22),0,"this is a test to pass data","1234567", please);
+//    public ArrayList<String> getItem_price() {
+//        return ArrayList<String> item_price = (ArrayList<String>) posts.stream().map((p) -> p.price.toString()).collect(Collectors.toList());
+//    }
 
-    public ImageAdapter(Context context, String[] item_description) {
+
+//    private final String[] item_description = {"belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"};
+//    private final String[] item_price = {"$50", "$15000", "$2300", "$100", "$50", "$150", "$1200", "$300"};
+//    private final int[] image = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3, R.drawable.pic_4,
+//            R.drawable.pic_5, R.drawable.pic_6, R.drawable.pic_7, R.drawable.pic_8, R.drawable.pic_9, R.drawable.pic_10};
+
+
+    public ImageAdapter(Context context, ArrayList<Posts> item_description) {
         this.context = context;
+        this.item_description = item_description;
     }
 
-    private String getDatabaseData(){
+    private ArrayList<Posts> getDatabaseData(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
         // for now we dont need to limit how many posts we retrieve
@@ -76,6 +86,7 @@ public class ImageAdapter extends BaseAdapter {
                         Posts post = new Posts(title,price,likes,desc,uid,p_uri,author);
                         Log.d("uhm",post.toString());
                         // add post to arraylist
+                        postList.add(post);
 
                     }
                 }
@@ -85,7 +96,8 @@ public class ImageAdapter extends BaseAdapter {
                 }
             }
         }); // make it not equals null or something
-return "FSAF";
+//        return postList;
+        return postList;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -98,39 +110,38 @@ return "FSAF";
 
             gridView = new View(context);
 
-            // get layout from mobile.xml
+//            // get layout from mobile.xml
             gridView = inflater.inflate(R.layout.grid_item, null);
-
-            // set value into textview
-            TextView textView = (TextView) gridView.findViewById(R.id.description);
-            textView.setText(item_description[position]);
-
-            TextView textView_price = (TextView) gridView.findViewById(R.id.item_price);
-            textView_price.setText(item_price[position]);
-
-            // set image based on selected text
-            ImageView imageView = (ImageView) gridView.findViewById(R.id.itemPicture);
-
-            String item = item_description[position];
-
-            imageView.setImageResource(image[position]);
-
-            gridView.setBackgroundColor(Color.WHITE);
-
-
-
-
 
         } else {
             gridView = (View) convertView;
         }
+
+        // get layout from mobile.xml
+        gridView = inflater.inflate(R.layout.grid_item, null);
+
+        // set value into textview
+        TextView textView = (TextView) gridView.findViewById(R.id.description);
+        textView.setText(item_description.get(position).title);
+
+        TextView textView_price = (TextView) gridView.findViewById(R.id.item_price);
+        textView_price.setText(item_description.get(position).price.toString());
+
+        // set image based on selected text
+        ImageView imageView = (ImageView) gridView.findViewById(R.id.itemPicture);
+
+//            String item = item_description.get(position).title;
+        Glide.with(this.context).load(item_description.get(position).imageURL).into(imageView);
+//            imageView.setIma (item_description.get(position).imageURL);
+
+        gridView.setBackgroundColor(Color.WHITE);
 
         return gridView;
     }
 
     @Override
     public int getCount() {
-        return item_description.length;
+        return item_description.size();
     }
 
     @Override
