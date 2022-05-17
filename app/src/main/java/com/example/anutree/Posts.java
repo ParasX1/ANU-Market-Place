@@ -17,10 +17,10 @@ public class Posts implements Parcelable {
     public Uri imageURL;
 
     public Posts(){}
-    public Posts(String title, Float price, int likes, String desc, String uid, Uri imageURL){
+    public Posts(String title, Float price, int likes, String desc, String author, Uri imageURL){
         this.title = title;
         this.uid = UUID.randomUUID().toString();
-        this.author = uid; // this will be the user's firebase id
+        this.author = author; // this will be the user's firebase id
         this.price = price;
         this.likes = likes;
         this.description = desc;

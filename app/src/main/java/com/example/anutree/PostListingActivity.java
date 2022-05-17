@@ -65,7 +65,7 @@ public class PostListingActivity extends AppCompatActivity {
         setTitle(post_title);
 
         // Set Adapter
-        Adapter adapter = new Adapter(this);
+        Adapter adapter = new Adapter(this,post_image_url);
         viewPager.setAdapter(adapter);
 
         TextView title = findViewById(R.id.listingtitle);
