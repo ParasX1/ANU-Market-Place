@@ -31,10 +31,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-public class ImageAdapter extends BaseAdapter {
+public class ImageAdapter2 extends BaseAdapter {
+
     private Context context;
 
-//    ArrayList<Posts> posts = getDatabaseData(); // initialise list of posts
+    //    ArrayList<Posts> posts = getDatabaseData(); // initialise list of posts
 //    private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList("belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"));
 //    private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList(posts.get(0).title,posts.get(1).title));
 //    private ArrayList<String> item_price;
@@ -53,7 +54,7 @@ public class ImageAdapter extends BaseAdapter {
 //            R.drawable.pic_5, R.drawable.pic_6, R.drawable.pic_7, R.drawable.pic_8, R.drawable.pic_9, R.drawable.pic_10};
 
 
-    public ImageAdapter(Context context, ArrayList<Posts> item_description) {
+    public ImageAdapter2(Context context, ArrayList<Posts> item_description) {
         this.context = context;
         this.item_description = item_description;
     }

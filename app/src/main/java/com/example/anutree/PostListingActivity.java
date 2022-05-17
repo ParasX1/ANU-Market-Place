@@ -21,6 +21,9 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+
 public class PostListingActivity extends AppCompatActivity {
 
     @Override
@@ -42,10 +45,15 @@ public class PostListingActivity extends AppCompatActivity {
                         .build();
 
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-
                 notificationManager.notify(0, n);
+                savePost();
             }
+
+            private void savePost() {
+
+
+            }
+
         });
 
         ViewPager viewPager = findViewById(R.id.pager);
@@ -67,7 +75,6 @@ public class PostListingActivity extends AppCompatActivity {
         // Set Adapter
         Adapter adapter = new Adapter(this,post_image_url);
         viewPager.setAdapter(adapter);
-
         TextView title = findViewById(R.id.listingtitle);
         TextView author = findViewById(R.id.author);
         TextView price = findViewById(R.id.price);
