@@ -37,7 +37,7 @@
         app:rippleColor="#000000" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBar3"
         android:layout_width="137dp"
         android:layout_height="132dp"
         android:layout_centerInParent="true"
@@ -49,6 +49,7 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="406dp"
         android:layout_height="580dp"
         android:layout_marginTop="16dp"
@@ -56,5 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/chatbanner"
         tools:layout_editor_absoluteX="2dp"
         tools:ignore="MissingConstraints" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

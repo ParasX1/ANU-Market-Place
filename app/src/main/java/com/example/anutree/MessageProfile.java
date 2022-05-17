@@ -42,7 +42,7 @@ public class MessageProfile extends AppCompatActivity {
 
         imgProfile = (ImageView) findViewById(R.id.profile_img);
         upload = (Button) findViewById(R.id.upload_button);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar); // Initialise the loading bar
+        progressBar = (ProgressBar) findViewById(R.id.progressBar2); // Initialise the loading bar
 
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,13 +81,11 @@ public class MessageProfile extends AppCompatActivity {
     }
 
     private void upLoadProfile() {
-        progressBar.setVisibility(View.VISIBLE);
         FirebaseStorage.getInstance().getReference("images/" + UUID.randomUUID().toString()).putFile(imagePath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 
                 if (task.isSuccessful()) {
-                    progressBar.setVisibility(View.GONE);
                     task.getResult().getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {  // To update Pfp of user, and add it to User
                         @Override
                         public void onComplete(@NonNull Task<Uri> task) {
@@ -103,7 +101,6 @@ public class MessageProfile extends AppCompatActivity {
                     Toast.makeText(MessageProfile.this, "Successful Upload of Image", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(MessageProfile.this, "Unsuccessful :(, Try again!", Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
