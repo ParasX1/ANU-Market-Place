@@ -1,11 +1,13 @@
 package com.example.anutree;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,19 +21,27 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Activity2 extends AppCompatActivity {
 
 //    private String[] item_description = {"belt", "car", "pc", "dog"};
 //        private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList("belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"));
 //    private String[] item_description = {"belt"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +50,6 @@ public class Activity2 extends AppCompatActivity {
 
         Button appearance = findViewById(R.id.trans_button_activity2);
         appearance.setClickable(false);
-
 
 //        final ArrayList<Posts> item_description = getDatabaseData(); // get database entries
 
@@ -92,6 +101,8 @@ public class Activity2 extends AppCompatActivity {
 
     }
 
+
+
     public void onMoreCategory(View view) {
         Intent intent = new Intent(getApplicationContext(), MoreCategoriesActivity.class);
         startActivity(intent);
@@ -121,7 +132,7 @@ public class Activity2 extends AppCompatActivity {
                         int likes = (int) ((long) p.get("likes"));
                         String uid = ((String) p.get("uid"));
                         String desc = ((String) p.get("description"));
-                        Posts post = new Posts(title, price, likes, desc, uid, p_uri, author);
+                        Posts post = new Posts(title, price, likes, desc, uid, p_uri);
 //                        Log.d("uhm", post.toString());
                         // add post to arraylist
                         postList.add(post);
@@ -140,6 +151,14 @@ public class Activity2 extends AppCompatActivity {
 
                             Posts post = (Posts) parent.getItemAtPosition(position);
                             intent.putExtra("the post",post);
+                            intent.putExtra("title", post.title);
+                            intent.putExtra("price", post.price);
+                            intent.putExtra("likes", post.likes);
+                            intent.putExtra("author", post.author);
+                            intent.putExtra("description", post.description);
+                            intent.putExtra("imageUrl", post.imageURL);
+                            intent.putExtra("uid", post.uid);
+                            // cant pass in a Posts object as something wrong with parcelable
 
                             startActivity(intent);
                         }

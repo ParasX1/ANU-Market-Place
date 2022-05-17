@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -21,13 +22,22 @@ public class PostListingActivity extends AppCompatActivity {
 
         ViewPager viewPager = findViewById(R.id.pager);
         Intent post_data = getIntent();
-        Posts post = post_data.getParcelableExtra("the post");
+//        Posts post = post_data.getParcelableExtra("the post");
         // something wrong with parcelable implementation
-        setTitle(post.title);
+        String post_title = post_data.getStringExtra("title");
+        Float post_price = post_data.getFloatExtra("price",0);
+        int post_likes = post_data.getIntExtra("likes",0);
+        String post_author = post_data.getStringExtra("author");
+        String post_desc = post_data.getStringExtra("description");
+        Uri post_image_url = post_data.getParcelableExtra("imageUrl");
+        String post_uid = post_data.getStringExtra("uid");
+        Log.d("uhm",post_price.toString() + "is price");
+        Posts this_post = new Posts(post_title,post_price,post_likes,post_desc,post_uid,post_image_url);
 
-        Log.d("uhm",(new Float(2.0).toString()));
+        setTitle(post_title);
+
         // Set Adapter
-        Adapter adapter = new Adapter(this,post.imageURL);
+        Adapter adapter = new Adapter(this,post_image_url);
         viewPager.setAdapter(adapter);
 
         TextView title = findViewById(R.id.listingtitle);
@@ -35,11 +45,10 @@ public class PostListingActivity extends AppCompatActivity {
         TextView price = findViewById(R.id.price);
         TextView description = findViewById(R.id.desc_content);
 
-        title.setText(post.title);
-        author.setText(post.author);
-        price.setText(String.valueOf(post.price));
-//        description.setText(post.description);
-        description.setText(post.toString());
+        title.setText(post_title);
+        author.setText(post_author);
+        price.setText(post_price.toString());
+        description.setText(post_desc);
 
 
 

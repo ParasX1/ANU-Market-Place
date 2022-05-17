@@ -26,16 +26,6 @@ public class Posts implements Parcelable {
         this.description = desc;
         this.imageURL = imageURL;
     }
-    public Posts(String title, Float price, int likes, String desc, String uid, Uri imageURL, String author){
-        this.title = title;
-        this.uid = UUID.randomUUID().toString();
-        this.author = uid; // this will be the user's firebase id
-        this.price = price;
-        this.likes = likes;
-        this.description = desc;
-        this.imageURL = imageURL;
-        this.author = author;
-    }
 
     // getter methods so we can upload a post object to firebase (firebase requirement)
     public String getAuthor() {
@@ -104,6 +94,9 @@ public class Posts implements Parcelable {
             return new Posts[size];
         }
     };
+
+
+
     private Posts(Parcel in){
         this.title = in.readString();
         this.uid = in.readString();
@@ -113,9 +106,6 @@ public class Posts implements Parcelable {
         this.description = in.readString();
         this.imageURL = in.readParcelable(Uri.class.getClassLoader());
 
-        if (in.dataAvail() > 0){
-            this.author = in.readString();
-        }
 
     }
 
