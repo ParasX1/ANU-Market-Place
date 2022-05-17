@@ -126,7 +126,8 @@ public class savedPosts extends AppCompatActivity {
                         int likes = (int) ((long) p.get("likes"));
                         String uid = ((String) p.get("uid"));
                         String desc = ((String) p.get("description"));
-                        Posts post = new Posts(title, price, likes, desc, uid, p_uri);
+                        String name = (String) p.get("name");
+                        Posts post = new Posts(title, price, likes, desc, uid, name, p_uri);
 //                        Log.d("uhm", post.toString());
                         // add post to arraylist
                         postList.add(post);
@@ -144,14 +145,15 @@ public class savedPosts extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
 
                             Posts post = (Posts) parent.getItemAtPosition(position);
-                            intent.putExtra("the post",post);
+
                             intent.putExtra("title", post.title);
                             intent.putExtra("price", post.price);
                             intent.putExtra("likes", post.likes);
-                            intent.putExtra("author", post.author);
+                            intent.putExtra("author", post.author_id);
                             intent.putExtra("description", post.description);
                             intent.putExtra("imageUrl", post.imageURL);
                             intent.putExtra("uid", post.uid);
+                            intent.putExtra("name",post.name);
                             // cant pass in a Posts object as something wrong with parcelable
 
                             startActivity(intent);

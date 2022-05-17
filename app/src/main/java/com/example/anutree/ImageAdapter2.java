@@ -84,7 +84,8 @@ public class ImageAdapter2 extends BaseAdapter {
                         int likes = (int) ((long) p.get("likes"));
                         String uid = ((String) p.get("uid"));
                         String desc = ((String) p.get("description"));
-                        Posts post = new Posts(title,price,likes,desc,author,p_uri);
+                        String name = (String) p.get("name");
+                        Posts post = new Posts(title,price,likes,desc,author,name,p_uri);
                         Log.d("uhm",post.toString());
                         // add post to arraylist
                         postList.add(post);
