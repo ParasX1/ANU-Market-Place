@@ -3,16 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_2.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_create_post.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_forgot_password.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_main_chat.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_main_page.xml" value="0.25" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_message_profile.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_post_listing.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/61433/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_user_information.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/ANUTree/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/ANUTree/app/src/main/res/layout/activity_register_user.xml" value="0.33" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.262" />
@@ -21,6 +11,9 @@
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_register_user.xml" value="0.3582427536231884" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/activity_search_page1.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/content_search_page1.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_2.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_create_post.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_message_profile.xml" value="0.264945652173913" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout-land/activity_2.xml" value="0.6125" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout-land/activity_create_post.xml" value="0.6125" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout-land/activity_forgot_password.xml" value="0.6125" />
@@ -35,7 +28,6 @@
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout/activity_more_categories.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout/activity_post_listing.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout/activity_register_user.xml" value="0.5456410256410257" />
-        <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout/activity_user_information.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout/grid_item.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/xxtor/AndroidStudioProjects/Group Project/comp2100-group_project/app/src/main/res/layout/activity_more_categories.xml" value="0.25" />
         <entry key="..\:/Users/xxtor/AndroidStudioProjects/Group Project/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml" value="0.17831813576494426" />
