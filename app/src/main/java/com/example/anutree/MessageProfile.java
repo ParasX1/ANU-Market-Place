@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
@@ -92,6 +93,10 @@ public class MessageProfile extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Uri> task) {
                             if(task.isSuccessful()) {
                                 updateProfilePicture(task.getResult().toString());
+                                Intent i = new Intent(getApplicationContext(),MainChat.class);
+                                startActivity(i);
+                            } else {
+                                Toast.makeText(MessageProfile.this, "Error Try again!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -104,7 +109,8 @@ public class MessageProfile extends AppCompatActivity {
         });
     }
 
-    private void updateProfilePicture(String toString) {
+    private void updateProfilePicture(String urlImg) { //Updates oject User in Firebase with pfp Img url
+        FirebaseDatabase.getInstance().getReference("user/"+FirebaseAuth.getInstance().getUid()+"/pfp").setValue(urlImg);
     }
 
 }

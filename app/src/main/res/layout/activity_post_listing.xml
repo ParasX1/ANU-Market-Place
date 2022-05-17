@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fadingEdge="none"
     android:outlineProvider="none"
+    android:background="@drawable/green6"
     tools:context=".PostListingActivity">
 
     <androidx.viewpager.widget.ViewPager
