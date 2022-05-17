@@ -80,7 +80,7 @@ public class MessageProfile extends AppCompatActivity {
         imgProfile.setImageBitmap(bitmap); //sets as bitmap
     }
 
-    private void upLoadProfile() {
+    private void upLoadProfile() { //Uploads Image
         FirebaseStorage.getInstance().getReference("images/" + UUID.randomUUID().toString()).putFile(imagePath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
