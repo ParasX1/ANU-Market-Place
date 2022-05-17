@@ -59,7 +59,7 @@ public class PostListingActivity extends AppCompatActivity {
         String post_desc = post_data.getStringExtra("description");
         Uri post_image_url = post_data.getParcelableExtra("imageUrl");
         String post_uid = post_data.getStringExtra("uid");
-        Log.d("uhm",post_price.toString() + "is price");
+//        Log.d("uhm",post_price.toString() + "is price");
         Posts this_post = new Posts(post_title,post_price,post_likes,post_desc,post_uid,post_image_url);
 
         setTitle(post_title);

@@ -150,7 +150,7 @@ public class Activity2 extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
 
                             Posts post = (Posts) parent.getItemAtPosition(position);
-                            intent.putExtra("the post",post);
+//                            intent.putExtra("the post",post);
                             intent.putExtra("title", post.title);
                             intent.putExtra("price", post.price);
                             intent.putExtra("likes", post.likes);
