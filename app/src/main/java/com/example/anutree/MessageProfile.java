@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
@@ -41,7 +42,7 @@ public class MessageProfile extends AppCompatActivity {
 
         imgProfile = (ImageView) findViewById(R.id.profile_img);
         upload = (Button) findViewById(R.id.upload_button);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar); // Initialise the loading bar
+        progressBar = (ProgressBar) findViewById(R.id.progressBar2); // Initialise the loading bar
 
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,32 +80,34 @@ public class MessageProfile extends AppCompatActivity {
         imgProfile.setImageBitmap(bitmap); //sets as bitmap
     }
 
-    private void upLoadProfile() {
-        progressBar.setVisibility(View.VISIBLE);
+    private void upLoadProfile() { //Uploads Image
         FirebaseStorage.getInstance().getReference("images/" + UUID.randomUUID().toString()).putFile(imagePath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 
                 if (task.isSuccessful()) {
-                    progressBar.setVisibility(View.GONE);
                     task.getResult().getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {  // To update Pfp of user, and add it to User
                         @Override
                         public void onComplete(@NonNull Task<Uri> task) {
                             if(task.isSuccessful()) {
                                 updateProfilePicture(task.getResult().toString());
+                                Intent i = new Intent(getApplicationContext(),MainChat.class);
+                                startActivity(i);
+                            } else {
+                                Toast.makeText(MessageProfile.this, "Error Try again!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                     Toast.makeText(MessageProfile.this, "Successful Upload of Image", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(MessageProfile.this, "Unsuccessful :(, Try again!", Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
     }
 
-    private void updateProfilePicture(String toString) {
+    private void updateProfilePicture(String urlImg) { //Updates oject User in Firebase with pfp Img url
+        FirebaseDatabase.getInstance().getReference("User/"+FirebaseAuth.getInstance().getUid()+"/pfp").setValue(urlImg);
     }
 
 }
