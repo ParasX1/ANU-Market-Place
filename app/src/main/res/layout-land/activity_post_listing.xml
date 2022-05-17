@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
     <TextView
-        android:id="@+id/descTitle"
+        android:id="@+id/uid_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -105,6 +105,6 @@
         app:layout_constraintBottom_toTopOf="@+id/msgButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/uid_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

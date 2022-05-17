@@ -127,12 +127,13 @@ public class Activity2 extends AppCompatActivity {
 
                         Uri p_uri = Uri.parse(((String) p.get("imageURL")));
                         String title = ((String) p.get("title"));
-                        String author = ((String) p.get("author"));
+                        String author = ((String) p.get("author_id"));
                         Float price = ((Double) p.get("price")).floatValue();
                         int likes = (int) ((long) p.get("likes"));
-                        String uid = ((String) p.get("uid"));
+                        String uid = ((String) p.get("uid")); // university id of author
                         String desc = ((String) p.get("description"));
-                        Posts post = new Posts(title, price, likes, desc, uid, p_uri);
+                        String name = (String) p.get("name");
+                        Posts post = new Posts(title, price, likes, desc, author,name, p_uri);
 //                        Log.d("uhm", post.toString());
                         // add post to arraylist
                         postList.add(post);
@@ -146,7 +147,7 @@ public class Activity2 extends AppCompatActivity {
 
                     gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                            Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
 
                             Posts post = (Posts) parent.getItemAtPosition(position);
@@ -154,10 +155,11 @@ public class Activity2 extends AppCompatActivity {
                             intent.putExtra("title", post.title);
                             intent.putExtra("price", post.price);
                             intent.putExtra("likes", post.likes);
-                            intent.putExtra("author", post.author);
+                            intent.putExtra("author_id", post.author_id); // university id
                             intent.putExtra("description", post.description);
                             intent.putExtra("imageUrl", post.imageURL);
                             intent.putExtra("uid", post.uid);
+                            intent.putExtra("name", post.name);
                             // cant pass in a Posts object as something wrong with parcelable
 
                             startActivity(intent);

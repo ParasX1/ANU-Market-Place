@@ -31,7 +31,7 @@ public class PostListingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_listing);
 
-        Toast.makeText(PostListingActivity.this,"test", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(PostListingActivity.this,"test", Toast.LENGTH_SHORT).show();
         Button Save_post = (Button) findViewById(R.id.save_post);
 
         Save_post.setOnClickListener(new View.OnClickListener() {
@@ -63,12 +63,13 @@ public class PostListingActivity extends AppCompatActivity {
         String post_title = post_data.getStringExtra("title");
         Float post_price = post_data.getFloatExtra("price",0);
         int post_likes = post_data.getIntExtra("likes",0);
-        String post_author = post_data.getStringExtra("author");
+        String post_author = post_data.getStringExtra("author_id");
         String post_desc = post_data.getStringExtra("description");
         Uri post_image_url = post_data.getParcelableExtra("imageUrl");
-        String post_uid = post_data.getStringExtra("uid");
+        String post_uid = post_data.getStringExtra("uid"); // university id of author
+        String post_name = post_data.getStringExtra("name");
 //        Log.d("uhm",post_price.toString() + "is price");
-        Posts this_post = new Posts(post_title,post_price,post_likes,post_desc,post_uid,post_image_url);
+        Posts this_post = new Posts(post_title,post_price,post_likes,post_desc,post_uid,post_name,post_image_url);
 
         setTitle(post_title);
 
@@ -79,11 +80,15 @@ public class PostListingActivity extends AppCompatActivity {
         TextView author = findViewById(R.id.author);
         TextView price = findViewById(R.id.price);
         TextView description = findViewById(R.id.desc_content);
+        TextView uid_view = findViewById(R.id.uid_view);
 
-        title.setText(post_title);
-        author.setText(post_author);
+        title.setText(post_title + "                " + post_likes + " likes");
+        author.setText(post_name);
+        uid_view.setText("Uid: u" + post_author); // university id of user
         price.setText(post_price.toString());
-        description.setText(post_desc);
+
+        description.setText("Description:  \n" + post_desc);
+
 
 
 

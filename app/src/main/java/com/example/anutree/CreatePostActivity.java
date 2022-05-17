@@ -24,6 +24,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -96,7 +99,7 @@ public class CreatePostActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent,PICK_IMAGE_REQUEST_CODE);
                 has_selected_image = true;
-                Log.d("image yo", "SHOULD BE TRUE");
+//                Log.d("image yo", "SHOULD BE TRUE");
             }
         });
 
@@ -134,30 +137,55 @@ public class CreatePostActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                         image_database_uri = uri;
-//                                        the following stores a post object to the firestore databse
+//                                        the following stores a post object to the firestore database
 //                                        (the image is saved to the "storage" database)
                                             // get current user (firebase)
                                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                             assert user != null; // android studio told me to add this
                                             String userId = user.getUid(); // this is firebase's uid NOT the user's uid
-                                            // upload post data
-                                            String title = title_input.getText().toString();
-                                            float price = Float.parseFloat(price_input.getText().toString());
-                                            String description = description_input.getText().toString();
-
-                                            Posts post = new Posts(title,price,0,description,userId,image_database_uri); // post object
-//                                            finish();
-                                            Intent go_back = new Intent(getApplicationContext(),Activity2.class);
-                                            startActivity(go_back); // this is done so the previous activity is restarted and "refreshed"
-
-                                            db.collection("posts").add(post).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                            Log.d("uhm",userId);
+                                            // access realtime database for user info
+                                            FirebaseDatabase RTdb = FirebaseDatabase.getInstance();
+                                            DatabaseReference RTref = RTdb.getReference("User");
+                                            RTref.child(userId).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                                 @Override
-                                                public void onSuccess(DocumentReference documentReference) {
-                                                    // by here everything is saved and done
+                                                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                                    if (task.isSuccessful()){
 
-                                                    Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
+                                                        // upload post data
+                                                        String title = title_input.getText().toString();
+                                                        float price = Float.parseFloat(price_input.getText().toString());
+                                                        String description = description_input.getText().toString();
+                                                        // the result should be a document (json type thing)
+                                                        DataSnapshot userDoc = task.getResult();
+                                                        String userName = (String) userDoc.child("fullName").getValue();
+                                                        String userUID = (String) userDoc.child("uID").getValue(); // university id of author
+
+                                                        Log.d("uhm",userName.toString());
+                                                        Log.d("uhm","user id" + userUID);
+
+                                                        Posts post = new Posts(title,price,0,description,userUID,userName,image_database_uri); // post object
+
+                                                        Intent go_back = new Intent(getApplicationContext(),Activity2.class);
+                                                        startActivity(go_back); // this is done so the previous activity is restarted and "refreshed"
+
+                                                        db.collection("posts").add(post).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                            @Override
+                                                            public void onSuccess(DocumentReference documentReference) {
+                                                                // by here everything is saved and done
+
+                                                                Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+
+                                                    }
+                                                    else {
+                                                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                                                    }
                                                 }
                                             });
+
+
                                         }
                                     });
 

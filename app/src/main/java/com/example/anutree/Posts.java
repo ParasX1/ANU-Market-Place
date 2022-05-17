@@ -8,19 +8,21 @@ import java.util.UUID;
 
 public class Posts  {
 
-    public String author; // this is the uid of the user
+    public String author_id; // this is the uid of the user
     public String uid; // unique id
     public String title;
     public Float price;
     public int likes;
+    public String name;
     public String description;
     public Uri imageURL;
 
     public Posts(){}
-    public Posts(String title, Float price, int likes, String desc, String author, Uri imageURL){
+    public Posts(String title, Float price, int likes, String desc, String author_id, String name, Uri imageURL){
         this.title = title;
         this.uid = UUID.randomUUID().toString();
-        this.author = author; // this will be the user's firebase id
+        this.author_id = author_id; // this is now the user's University ID
+        this.name = name;
         this.price = price;
         this.likes = likes;
         this.description = desc;
@@ -29,7 +31,7 @@ public class Posts  {
 
     // getter methods so we can upload a post object to firebase (firebase requirement)
     public String getAuthor() {
-        return author;
+        return author_id;
     }
     public String getUid() {
         return uid;
@@ -37,7 +39,7 @@ public class Posts  {
     public String getTitle() {
         return title;
     }
-
+    public String getName() { return name; }
     public Float getPrice() {
         return price;
     }
@@ -53,7 +55,7 @@ public class Posts  {
     @Override
     public String toString() {
         return "Posts{" +
-                "author='" + author + '\'' +
+                "author='" + author_id + '\'' +
                 ", uid='" + uid + '\'' +
                 ", title='" + title + '\'' +
                 ", price=" + price +
