@@ -147,9 +147,8 @@ public class ImageAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
         // this returns the Post object of the view
-//        Posts post =
-        // we will have a list of posts
-        return null;
+        Posts post = item_description.get(position);
+        return post;
     }
 
     @Override

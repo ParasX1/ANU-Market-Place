@@ -103,7 +103,7 @@ public class Activity2 extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
 
-        Log.d("uhm", "THIS SHOUDL BE DESIPLASDYD");
+//        Log.d("uhm", "THIS SHOULD BE DISPLAYED");
         db.collection("posts").whereNotEqualTo("likes", -1).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -122,7 +122,7 @@ public class Activity2 extends AppCompatActivity {
                         String uid = ((String) p.get("uid"));
                         String desc = ((String) p.get("description"));
                         Posts post = new Posts(title, price, likes, desc, uid, p_uri, author);
-                        Log.d("uhm", post.toString());
+//                        Log.d("uhm", post.toString());
                         // add post to arraylist
                         postList.add(post);
 
@@ -138,10 +138,9 @@ public class Activity2 extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
 
-                            Object please = parent.getAdapter().getItem(position);
+                            Posts post = (Posts) parent.getItemAtPosition(position);
+                            intent.putExtra("the post",post);
 
-                            Log.d("uhm", Integer.toString(position));
-//                Log.d("uhm", please.toString());
                             startActivity(intent);
                         }
                     });

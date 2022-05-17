@@ -1,10 +1,12 @@
 package com.example.anutree;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.UUID;
 
-public class Posts {
+public class Posts implements Parcelable {
 
     public String author; // this is the uid of the user
     public String uid; // unique id
@@ -69,4 +71,55 @@ public class Posts {
                 ", imageURL=" + imageURL +
                 '}';
     }
+
+
+    /*    this class implements parcelable
+          the following is from the following link:
+          https://developer.android.com/reference/android/os/Parcelable
+          this is so we can add a Posts object as an extra to an intent (through parcelable)
+     */
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(title);
+        parcel.writeFloat(price);
+        parcel.writeInt(likes);
+        parcel.writeString(description);
+        parcel.writeString(uid);
+        parcel.writeParcelable(imageURL,i);
+        parcel.writeString(author);
+    }
+
+    public static final Parcelable.Creator<Posts> CREATOR = new Parcelable.Creator<Posts>() {
+        public Posts createFromParcel(Parcel in) {
+            return new Posts(in);
+        }
+
+        public Posts[] newArray(int size) {
+            return new Posts[size];
+        }
+    };
+    private Posts(Parcel in){
+        this.title = in.readString();
+        this.uid = in.readString();
+        this.author = in.readString();
+        this.price = in.readFloat();
+        this.likes = in.readInt();
+        this.description = in.readString();
+        this.imageURL = in.readParcelable(Uri.class.getClassLoader());
+
+        if (in.dataAvail() > 0){
+            this.author = in.readString();
+        }
+
+    }
+
+
+
+
 }
