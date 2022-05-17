@@ -107,7 +107,7 @@ public class MessageProfile extends AppCompatActivity {
     }
 
     private void updateProfilePicture(String urlImg) { //Updates oject User in Firebase with pfp Img url
-        FirebaseDatabase.getInstance().getReference("user/"+FirebaseAuth.getInstance().getUid()+"/pfp").setValue(urlImg);
+        FirebaseDatabase.getInstance().getReference("User/"+FirebaseAuth.getInstance().getUid()+"/pfp").setValue(urlImg);
     }
 
 }

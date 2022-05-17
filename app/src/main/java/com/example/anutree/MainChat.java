@@ -79,7 +79,6 @@ public class MainChat extends AppCompatActivity {
 
     private void getUsers() { //gets Users
         FirebaseDatabase.getInstance().getReference("user").addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) { //gets all users form Firebase
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
@@ -91,7 +90,6 @@ public class MainChat extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
