@@ -23,11 +23,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.FirestoreRegistrar;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -85,15 +87,15 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 // This is where the parser and tokenizer stuff is goes i guess???
-                if (s.equals("cat")){ // just some random test
-                    Intent intent = new Intent(getApplicationContext(), MainChat.class);
-                    startActivity(intent);
-                }
+                if(s.isEmpty()) getDatabaseData();
+                else processsearch(s);
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
+                if(s.isEmpty()) getDatabaseData();
+                else processsearch(s);
                 return true;
             }
         };
@@ -132,6 +134,85 @@ public class Activity2 extends AppCompatActivity {
 
 //        Log.d("uhm", "THIS SHOULD BE DISPLAYED");
         db.collection("posts").whereNotEqualTo("likes", -1).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Log.d("uhm",document.toObject(Posts.class).toString());
+//                        Log.d("uhm",document.getData().toString());
+                        Map<String, Object> p = document.getData();
+//                        Log.d("uhm",p.get("title").toString());
+
+                        Uri p_uri = Uri.parse(((String) p.get("imageURL")));
+                        String title = ((String) p.get("title"));
+                        String author = ((String) p.get("author_id"));
+                        Float price = ((Double) p.get("price")).floatValue();
+                        int likes = (int) ((long) p.get("likes"));
+                        String uid = ((String) p.get("uid")); // university id of author
+                        String desc = ((String) p.get("description"));
+                        String name = (String) p.get("name");
+                        Posts post = new Posts(title, price, likes, desc, author,name, p_uri);
+//                        Log.d("uhm", post.toString());
+                        // add post to arraylist
+                        postList.add(post);
+
+                    }
+                    // all this stuff was originally inside the oncreate method
+                    GridView gridView = (GridView) findViewById(R.id.item_grid);
+
+                    ImageAdapter adapter = new ImageAdapter(getApplicationContext(), postList);
+                    gridView.setAdapter(adapter);
+
+                    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+//                            Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
+
+                            Posts post = (Posts) parent.getItemAtPosition(position);
+//                            intent.putExtra("the post",post);
+                            intent.putExtra("title", post.title);
+                            intent.putExtra("price", post.price);
+                            intent.putExtra("likes", post.likes);
+                            intent.putExtra("author_id", post.author_id); // university id
+                            intent.putExtra("description", post.description);
+                            intent.putExtra("imageUrl", post.imageURL);
+                            intent.putExtra("uid", post.uid);
+                            intent.putExtra("name", post.name);
+                            // cant pass in a Posts object as something wrong with parcelable
+
+                            startActivity(intent);
+                        }
+                    });
+
+                    Button post_ad = findViewById(R.id.create_ad_button);
+                    post_ad.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent goto_create_post = new Intent(getApplicationContext(), CreatePostActivity.class);
+                            startActivity(goto_create_post);
+                            gridView.invalidateViews();
+
+                        }
+                    });
+                } else {
+                    Log.d("uhm", "Not workking", task.getException());
+                }
+
+            }
+        }); // make it not equals null or something
+
+//        return postList;
+    }
+
+    private void processsearch(String s) {
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        ArrayList<Posts> postList = new ArrayList<>(); // initialise list
+
+        postList.clear(); //swipe to refresh needs this to be cleared
+
+//        Log.d("uhm", "THIS SHOULD BE DISPLAYED");
+        db.collection("posts").orderBy("title").startAt(s).endAt(s+'\uf8ff').limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {

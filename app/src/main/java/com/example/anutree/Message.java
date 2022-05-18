@@ -12,6 +12,8 @@ public class Message {
         this.contentOfMsg = contentOfMsg;
     }
 
+    public Message() { }
+
     public String getContentOfMsg() {
         return contentOfMsg;
     }
