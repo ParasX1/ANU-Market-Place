@@ -101,7 +101,7 @@ public class UserInformation extends AppCompatActivity {
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent photoIntent = new Intent(Intent.ACTION_PICK); //Code to open gallery
+                Intent photoIntent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI); //Code to open gallery
                 photoIntent.setType("image/*");
                 startActivityForResult(photoIntent,1);
             }

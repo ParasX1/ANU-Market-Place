@@ -10,19 +10,19 @@ import java.util.ArrayList;
 public class User implements Parcelable {
     // Makes object to store in Firebase
     public String fullName,uID,email,password,pfp;
-    public ArrayList<Posts> savedPosts;
+    public ArrayList<String> savedPosts;
 
 
     public User()
     {}
 
-    public User(String fullName,String uID,String email,String password,String pfp) {
+    public User(String fullName,String uID,String email,String password,String pfp,ArrayList<String> savedPosts) {
         this.fullName =fullName;
         this.uID =uID;
         this.email =email;
         this.password =password;
         this.pfp =pfp;
-        savedPosts = new ArrayList<Posts>();
+        this.savedPosts = new ArrayList<String >();
     }
 
 

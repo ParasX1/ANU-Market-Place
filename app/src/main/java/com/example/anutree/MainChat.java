@@ -119,7 +119,6 @@ public class MainChat extends AppCompatActivity {
                 }
 
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(MainChat.this, "Cancelled :(", Toast.LENGTH_SHORT).show();

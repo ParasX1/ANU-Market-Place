@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
 public class MessageActivity extends AppCompatActivity {
     private RecyclerView recyclerViewl;
     private EditText editMessage;
-    private ImageView pfp;
+    private ImageView imgToolbar;
     private ImageView sendButton;
     private TextView txtFriendUser;
     private ProgressBar progressBar;
@@ -52,12 +54,10 @@ public class MessageActivity extends AppCompatActivity {
         editMessage = findViewById(R.id.editTxtChat);
         txtFriendUser = findViewById(R.id.txtChattingName);
         progressBar = findViewById(R.id.progressBar4);
-        pfp = findViewById(R.id.img_toolbar);
+        imgToolbar = findViewById(R.id.img_toolbar);
         sendButton = findViewById(R.id.send_button);
 
         txtFriendUser.setText(usernameOfFriend); //Takes name of chatroom friend and sets it as the name to be displayed
-
-
 
         listOfMessages = new ArrayList<>();
 
@@ -72,13 +72,12 @@ public class MessageActivity extends AppCompatActivity {
         });
 
 
-        messageAdapter = new MessageAdapter(listOfMessages,getIntent().getStringExtra("My_pfp"),getIntent().getStringExtra("Pfp_of_friend"),MessageActivity.this);//passes info to the MSg adapter to make msgs
+        messageAdapter = new MessageAdapter(listOfMessages, getIntent().getStringExtra("My_pfp"),getIntent().getStringExtra("Pfp_of_friend"),MessageActivity.this);//passes info to the MSg adapter to make msgs
         recyclerViewl.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewl.setAdapter(messageAdapter);
         Glide.with(MessageActivity.this).load(getIntent().getStringExtra("Pfp_of_friend")).placeholder(R.drawable.account_image).error(R.drawable.account_image);
         //Create Msg Object and store it/retrive it
         setUpChatRoomID();
-
     }
 
     private void setUpChatRoomID() {
@@ -86,7 +85,7 @@ public class MessageActivity extends AppCompatActivity {
                 .getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String myUID = snapshot.getValue(User.class).getFullName();
+                String myUID = snapshot.getValue(User.class).getuID();
                 if (usernameOfFriend.compareTo(myUID)>0) {  //comparing UIDs to create key
                     chatRoomId = myUID + uIDOfFriend;
                 }else if (usernameOfFriend.compareTo(myUID)==0) {

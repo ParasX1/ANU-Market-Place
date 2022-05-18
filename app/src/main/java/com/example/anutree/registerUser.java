@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class registerUser extends AppCompatActivity implements View.OnClickListener {
@@ -33,6 +34,7 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
     private EditText editEmail;
     private EditText editPassword;
     private ProgressBar progressBar;
+
 
 
     @Override
@@ -73,6 +75,8 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
         String password = editPassword.getText().toString().trim(); // Check for Password
         String fullName = editFullName.getText().toString().trim(); // Check for Name
 
+        ArrayList<String> savedPosts = new ArrayList<>(1);
+
         if(fullName.isEmpty()) {
             editFullName.setError("Oops, forgot to give me a Full Name?");
             editFullName.requestFocus();
@@ -93,7 +97,7 @@ public class registerUser extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                User user = new User(fullName,uID,email,password,"");
+                                User user = new User(fullName,uID,email,password,"",savedPosts);
                                 FirebaseUser user1 = mAuth.getCurrentUser();
                                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(fullName).build();
                                 user1.updateProfile(profileUpdates);

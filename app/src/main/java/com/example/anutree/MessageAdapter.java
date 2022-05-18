@@ -14,20 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageHolder> {
 
     private ArrayList<Message> messages;
-    private String senderImg,recieverImg;
+    private String senderImg, receiverImg;
     private Context context;
 
-    public MessageAdapter(ArrayList<Message> messages,String senderImg, String recieverMsg,Context context) {
+    public MessageAdapter(ArrayList<Message> messages,String senderImg, String receiverImg,Context context) {
         this.messages = messages;
         this.senderImg = senderImg;
-        this.recieverImg = recieverMsg;
+        this.receiverImg = receiverImg;
         this.context = context;
     }
 
@@ -54,7 +53,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
             //same as above for pfp
             constraintSet.applyTo(constraintLayout);
         } else {
-            Glide.with(context).load(recieverImg).error(R.drawable.account_image).placeholder(R.drawable.account_image).into(holder.pfp);
+            Glide.with(context).load(receiverImg).error(R.drawable.account_image).placeholder(R.drawable.account_image).into(holder.pfp);
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(constraintLayout);  //get info in that moment
             constraintSet.clear((R.id.messageCardview),ConstraintSet.RIGHT);  // Clears left side of constraints so msg shows on right side as IF user sent it
@@ -68,7 +67,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
 
     @Override
     public int getItemCount() {
-        return 0;
+        return messages.size();
     }
 
     class MessageHolder extends RecyclerView.ViewHolder{
@@ -78,13 +77,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
 
         public MessageHolder(@NonNull View itemView) {
             super(itemView);
-
             x = itemView.findViewById(R.id.ccLayout);
             txtmessage = itemView.findViewById(R.id.textmsg);
             pfp = itemView.findViewById(R.id.smallPfp);
-
-
-
         }
     }
 }
