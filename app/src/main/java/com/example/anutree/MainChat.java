@@ -29,6 +29,7 @@ public class MainChat extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<User> users;
     private ProgressBar progressBar;
+    private UserAdapter userAdapter;
     UserAdapter.OnClickListener onClickListener1;  //Refering to User adapter class
 
     @Override
@@ -84,7 +85,7 @@ public class MainChat extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     users.add(dataSnapshot.getValue(User.class));
                 }
-                UserAdapter userAdapter = new UserAdapter(users, MainChat.this, onClickListener1);
+                userAdapter = new UserAdapter(users, MainChat.this, onClickListener1);
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainChat.this));
                 recyclerView.setAdapter(userAdapter);
                 progressBar.setVisibility(View.GONE);

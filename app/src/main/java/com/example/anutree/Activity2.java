@@ -3,6 +3,7 @@ package com.example.anutree;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -41,6 +42,8 @@ public class Activity2 extends AppCompatActivity {
 //    private String[] item_description = {"belt", "car", "pc", "dog"};
 //        private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList("belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"));
 //    private String[] item_description = {"belt"};
+    private SwipeRefreshLayout swipe;
+
 
 
     @Override
@@ -50,6 +53,16 @@ public class Activity2 extends AppCompatActivity {
 
         Button appearance = findViewById(R.id.trans_button_activity2);
         appearance.setClickable(false);
+
+        swipe = findViewById(R.id.swipe_layout2);
+
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getDatabaseData();
+                swipe.setRefreshing(false);
+            }
+        });
 
 //        final ArrayList<Posts> item_description = getDatabaseData(); // get database entries
 
@@ -111,8 +124,13 @@ public class Activity2 extends AppCompatActivity {
 
 
     private void getDatabaseData() {
+
+
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
+
+        postList.clear(); //swipe to refresh needs this to be cleared
 
 //        Log.d("uhm", "THIS SHOULD BE DISPLAYED");
         db.collection("posts").whereNotEqualTo("likes", -1).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
