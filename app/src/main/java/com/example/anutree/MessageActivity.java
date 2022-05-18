@@ -37,7 +37,7 @@ public class MessageActivity extends AppCompatActivity {
 
     private ArrayList<Message> listOfMessages;
 
-    String usernameOfFriend,emailOfFriend,chatRoomId; // for storing past chats and retriving them later on
+    String usernameOfFriend,emailOfFriend,chatRoomId; // for storing past chats and retrieving them later on
 
 
     @Override
@@ -85,7 +85,7 @@ public class MessageActivity extends AppCompatActivity {
                 .getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String myUID = snapshot.getValue(User.class).getuID();
+                String myUID = snapshot.getValue(User.class).getFullName();
                 if (usernameOfFriend.compareTo(myUID)>0) {  //comparing UIDs to create key
                     chatRoomId = myUID + uIDOfFriend;
                 }else if (usernameOfFriend.compareTo(myUID)==0) {
