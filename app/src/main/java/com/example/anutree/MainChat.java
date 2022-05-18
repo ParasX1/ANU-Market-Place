@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -32,6 +33,8 @@ public class MainChat extends AppCompatActivity {
     private UserAdapter userAdapter;
     UserAdapter.OnClickListener onClickListener1;  //Refering to User adapter class
 
+    String myPfpUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +47,12 @@ public class MainChat extends AppCompatActivity {
         onClickListener1 = new UserAdapter.OnClickListener() {
             @Override
             public void onUserClicked(int position) {
-                Toast.makeText(MainChat.this,"Tapped on friend!" +users.get(position).getuID(),Toast.LENGTH_LONG).show();
+                //takes to chat room
+                startActivity(new Intent(MainChat.this, MessageActivity.class)
+                        .putExtra("Username_of_friend",users.get(position).getFullName())
+                        .putExtra("Email_of_friend",users.get(position).getEmail()).putExtra("Pfp_of_friend",users.get(position).getPfp())
+                        .putExtra("My_pfp",myPfpUrl)); //gets all relevant info for chat and passes to msg activity
+                Toast.makeText(MainChat.this,"Tapped on friend!" +users.get(position).getuID(),Toast.LENGTH_LONG).show(); //pass username to MessageActitivty class
             }
         };
 
@@ -79,9 +87,10 @@ public class MainChat extends AppCompatActivity {
     }
 
     private void getUsers() { //gets Users
-        FirebaseDatabase.getInstance().getReference("user").addListenerForSingleValueEvent(new ValueEventListener() {
+        users.clear(); //When refreshing for new users
+        FirebaseDatabase.getInstance().getReference("User").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) { //gets all users form Firebase
+            public void onDataChange(@NonNull DataSnapshot snapshot) { //gets all users data form Firebase
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     users.add(dataSnapshot.getValue(User.class));
                 }
@@ -90,11 +99,18 @@ public class MainChat extends AppCompatActivity {
                 recyclerView.setAdapter(userAdapter);
                 progressBar.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
+
+                for (User users:users) { //To find own pfp to display in MessageActivity
+                    if (users.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+                        myPfpUrl = users.getPfp();
+                        return;
+                    }
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(MainChat.this, "Cancelled :(", Toast.LENGTH_SHORT).show();
             }
         });
     }

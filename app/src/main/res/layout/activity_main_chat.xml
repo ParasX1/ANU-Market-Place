@@ -48,15 +48,29 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="406dp"
-        android:layout_height="580dp"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/chatbanner"
-        tools:layout_editor_absoluteX="2dp"
-        tools:ignore="MissingConstraints" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="624dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatbanner">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="406dp"
+            android:layout_height="580dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/chatbanner"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="2dp" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 
 

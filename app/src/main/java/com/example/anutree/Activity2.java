@@ -125,8 +125,6 @@ public class Activity2 extends AppCompatActivity {
 
     private void getDatabaseData() {
 
-
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
 
