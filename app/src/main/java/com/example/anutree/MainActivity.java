@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) { //Check if button pressed
         switch(view.getId()) {
             case R.id.Register:
                 startActivity(new Intent(this,registerUser.class));
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void logInUser() {
-        String userEmail = editEmail.getText().toString().trim();
+        String userEmail = editEmail.getText().toString().trim();  //Certain Rules for
         String userPassword = editPassword.getText().toString().trim();
         if (userEmail.isEmpty()) {
             editEmail.setError("Oops you havnt given me a email address!");

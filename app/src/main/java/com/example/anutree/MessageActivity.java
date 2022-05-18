@@ -45,7 +45,7 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        usernameOfFriend = getIntent().getStringExtra("Username_of_friend");
+        usernameOfFriend = getIntent().getStringExtra("Username_of_friend"); //get data passed from MainChat
         emailOfFriend = getIntent().getStringExtra("Email_of_friend");
         uIDOfFriend = getIntent().getStringExtra("UID_of_friend");
 
