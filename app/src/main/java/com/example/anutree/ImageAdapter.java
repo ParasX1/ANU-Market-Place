@@ -31,7 +31,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-public class ImageAdapter extends BaseAdapter {
+public class
+ImageAdapter extends BaseAdapter {
     private Context context;
 
 //    ArrayList<Posts> posts = getDatabaseData(); // initialise list of posts

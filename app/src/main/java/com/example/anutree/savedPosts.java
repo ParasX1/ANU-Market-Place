@@ -138,14 +138,12 @@ public class savedPosts extends AppCompatActivity {
 
                     ImageAdapter adapter = new ImageAdapter(getApplicationContext(), postList);
                     gridView.setAdapter(adapter);
-
                     gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                             Toast.makeText(getApplicationContext(), ((TextView) v.findViewById(R.id.description)).getText(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), PostListingActivity.class);
 
                             Posts post = (Posts) parent.getItemAtPosition(position);
-
                             intent.putExtra("title", post.title);
                             intent.putExtra("price", post.price);
                             intent.putExtra("likes", post.likes);
