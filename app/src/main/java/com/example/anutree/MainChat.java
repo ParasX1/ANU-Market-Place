@@ -34,6 +34,7 @@ public class MainChat extends AppCompatActivity {
     UserAdapter.OnClickListener onClickListener1;  //Refering to User adapter class
 
     String myPfpUrl;
+    String myUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +51,12 @@ public class MainChat extends AppCompatActivity {
                 //takes to chat room
                 startActivity(new Intent(MainChat.this, MessageActivity.class)
                         .putExtra("Username_of_friend",users.get(position).getFullName())
-                        .putExtra("Email_of_friend",users.get(position).getEmail()).putExtra("Pfp_of_friend",users.get(position).getPfp())
-                        .putExtra("My_pfp",myPfpUrl)); //gets all relevant info for chat and passes to msg activity
+                        .putExtra("Email_of_friend",users.get(position).getEmail())
+                        .putExtra("Pfp_of_friend", users.get(position).getPfp())
+                        .putExtra("UID_of_friend",users.get(position).getuID())
+                        .putExtra("My_pfp",myPfpUrl))
+
+                ; //gets all relevant info for chat and passes to msg activity
                 Toast.makeText(MainChat.this,"Tapped on friend!" +users.get(position).getuID(),Toast.LENGTH_LONG).show(); //pass username to MessageActitivty class
             }
         };
@@ -106,6 +111,13 @@ public class MainChat extends AppCompatActivity {
                         return;
                     }
                 }
+                for (User users:users) { //To create chatroom unique ID
+                    if (users.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                        myUID = users.getuID();
+                        return;
+                    }
+                }
+
             }
 
             @Override

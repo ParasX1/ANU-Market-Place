@@ -32,12 +32,6 @@
             android:name=".MainChat"
             android:exported="false" />
         <activity
-            android:name=".UpdateProfile"
-            android:exported="false" />
-        <activity
-            android:name=".FriendsList"
-            android:exported="false" />
-        <activity
             android:name=".PostListingActivity"
             android:exported="false" />
         <activity
