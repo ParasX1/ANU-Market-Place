@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void logInUser() {
         String userEmail = editEmail.getText().toString().trim();
         String userPassword = editPassword.getText().toString().trim();
-
         if (userEmail.isEmpty()) {
             editEmail.setError("Oops you havnt given me a email address!");
             editEmail.requestFocus();

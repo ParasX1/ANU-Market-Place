@@ -87,7 +87,16 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 // This is where the parser and tokenizer stuff is goes i guess???
-                if(s.isEmpty()) getDatabaseData();
+                Tokenizer tokenizer = new Tokenizer(s);
+                boolean invalid = false;
+                try{
+                    Exp exp = new Parser(tokenizer).parseExp();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),"Invalid input. Must include letters.",Toast.LENGTH_SHORT).show();
+                    invalid = true;
+                }
+                if(s.isEmpty() & !invalid) getDatabaseData();
                 else processsearch(s);
                 return true;
             }
@@ -95,7 +104,6 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String s) {
                 if(s.isEmpty()) getDatabaseData();
-                else processsearch(s);
                 return true;
             }
         };

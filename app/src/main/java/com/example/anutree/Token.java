@@ -49,8 +49,8 @@ public class Token {
 
     @Override
     public String toString() {
-        if (type == Type.INT) {
-            return "INT(" + token + ")";
+        if (type == Type.STRING) {
+            return "STRING(" + token + ")";
         } else {
             return type + "";
         }

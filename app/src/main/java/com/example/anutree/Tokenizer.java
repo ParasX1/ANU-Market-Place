@@ -77,14 +77,14 @@ public class Tokenizer {
         The rest will follow a similar format.
          */
         char firstChar = buffer.charAt(0);
-        if(firstChar == '@') currentToken = new Token("<", Token.Type.AT);
-        else if (Character.isLetter(firstChar)) {
+        if (Character.isLetter(firstChar)) {
             int i = 0;
             while ((i < buffer.length()) && (Character.isLetter(buffer.charAt(i)))) {
                 i++;
             }
             String word = buffer.substring(0,i);
             if (word.equals("and")) currentToken = new Token(buffer.substring(0, i), Token.Type.AND);
+            else currentToken = new Token(buffer.substring(0, i), Token.Type.STRING);
         }
         else if (Character.isDigit(firstChar)) {
             int i = 0;
