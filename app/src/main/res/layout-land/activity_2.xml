@@ -1,39 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3D3D3"
+    android:background="@drawable/green2"
     tools:context=".Activity2">
-
-    <SearchView
-        android:id="@+id/Search_bar_activitiy_2"
-        android:layout_width="629dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="25dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/trans_button_activity2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/trans_button_activity2"
-        android:layout_width="630dp"
-        android:layout_height="86dp"
+        android:layout_width="552dp"
+        android:layout_height="92dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191" />
+        app:layout_constraintVertical_bias="0.188" />
 
     <Button
         android:id="@+id/button_car"
@@ -106,29 +93,86 @@
         app:layout_constraintTop_toTopOf="@+id/trans_button_activity2"
         app:layout_constraintVertical_bias="0.0" />
 
-    <GridView
-        android:id="@+id/item_grid"
-        android:layout_width="661dp"
-        android:layout_height="188dp"
-        android:horizontalSpacing="15dp"
-        android:numColumns="2"
-        android:verticalSpacing="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_layout2"
+        android:layout_width="668dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trans_button_activity2"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintTop_toBottomOf="@+id/trans_button_activity2">
+
+        <GridView
+            android:id="@+id/item_grid"
+            android:layout_width="404dp"
+            android:layout_height="424dp"
+            android:horizontalSpacing="15dp"
+            android:numColumns="2"
+            android:verticalSpacing="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trans_button_activity2"
+            app:layout_constraintVertical_bias="0.135" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <Button
-        android:id="@+id/create_ad_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Post Ad"
-        app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/create_ad_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post Ad"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swipe_layout2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/signOut_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Out"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.947"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swipe_layout2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    <SearchView
+        android:id="@+id/Search_bar"
+        android:layout_width="562dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/trans_button_activity2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_grid"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642" />
+
+    <Button
+        android:id="@+id/user_info"
+        android:layout_width="38dp"
+        android:layout_height="54dp"
+        android:drawableTop="@drawable/info"
+        android:onClick="on_more_info"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button_car"
+        app:layout_constraintEnd_toStartOf="@+id/Search_bar"
+        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
 
