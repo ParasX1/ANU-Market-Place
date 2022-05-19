@@ -55,8 +55,8 @@ public class PostListingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(PostListingActivity.this,"test", Toast.LENGTH_SHORT).show();
                 Notification n = new Notification.Builder(PostListingActivity.this)
-                        .setContentTitle("Test")
-                        .setContentText("Hello world")
+                        .setContentTitle("Post Saved")
+                        .setContentText(PostTitle + " Has been saved to your profile!")
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .build();
 

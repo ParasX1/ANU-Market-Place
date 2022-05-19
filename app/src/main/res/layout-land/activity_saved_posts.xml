@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/trans_button_activity3"
-        android:layout_width="401dp"
-        android:layout_height="92dp"
+        android:layout_width="573dp"
+        android:layout_height="89dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         app:backgroundTint="#FFFFFF"
@@ -96,8 +96,9 @@
 
     <GridView
         android:id="@+id/item_grid"
-        android:layout_width="404dp"
-        android:layout_height="424dp"
+        android:layout_width="642dp"
+        android:layout_height="241dp"
+        android:elevation="3dp"
         android:horizontalSpacing="15dp"
         android:numColumns="2"
         android:verticalSpacing="15dp"
@@ -107,34 +108,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trans_button_activity3"
         app:layout_constraintVertical_bias="0.282">
+
+        <RelativeLayout
+            android:id="@+id/loadingPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+
+            <Button
+                android:id="@+id/user_info2"
+                android:layout_width="38dp"
+                android:layout_height="54dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="62dp"
+                android:drawableTop="@drawable/info"
+                android:onClick="on_more_info"
+                app:backgroundTint="#FFFFFF" />
+        </RelativeLayout>
     </GridView>
-
-    <RelativeLayout
-        android:id="@+id/loadingPanel"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center" >
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true" />
-    </RelativeLayout>
-
-
-    <Button
-        android:id="@+id/user_info2"
-        android:layout_width="38dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:drawableTop="@drawable/info"
-        android:onClick="on_more_info"
-        app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button_car2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
