@@ -87,9 +87,9 @@ public class MessageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String myUID = snapshot.getValue(User.class).getFullName();
                 if (usernameOfFriend.compareTo(myUID)>0) {  //comparing UIDs to create key
-                    chatRoomId = myUID + uIDOfFriend;
+                    chatRoomId = myUID + usernameOfFriend;
                 }else if (usernameOfFriend.compareTo(myUID)==0) {
-                    chatRoomId = myUID + uIDOfFriend;
+                    chatRoomId = myUID + usernameOfFriend;
                 }else {
                     chatRoomId = usernameOfFriend +myUID;
                 }
