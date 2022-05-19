@@ -13,20 +13,24 @@
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-Assignement1/app/src/main/res/layout/content_search_page1.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_2.xml" value="0.15696649029982362" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_create_post.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_forgot_password.xml" value="0.2" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_image_adapter2.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_main.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_main_chat.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_main_page.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_message.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_message_profile.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_more_categories.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_post_listing.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_register_user.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_saved_posts.xml" value="0.30687830687830686" />
-        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_user_information.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/activity_user_information.xml" value="0.22" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/grid_item.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/message_holder.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout-land/user_holder.xml" value="0.30687830687830686" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_2.xml" value="0.264945652173913" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_create_post.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_forgot_password.xml" value="0.3625" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_image_adapter2.xml" value="0.3625" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_main.xml" value="0.19375" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_main_chat.xml" value="0.35190217391304346" />
@@ -35,16 +39,12 @@
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_message_profile.xml" value="0.1" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_more_categories.xml" value="0.3625" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_post_listing.xml" value="0.3625" />
+        <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_register_user.xml" value="0.3625" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_saved_posts.xml" value="0.34375" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/activity_user_information.xml" value="0.3625" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/grid_item.xml" value="0.3625" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/message_holder.xml" value="0.3625" />
         <entry key="..\:/Users/P3mx4/AndroidStudioProjects/comp2100-group_project/app/src/main/res/layout/user_holder.xml" value="0.3625" />
-        <entry key="..\:/Users/Raed/Desktop/2100 final group/app/src/main/res/layout/activity_2.xml" value="0.4041666666666667" />
-        <entry key="..\:/Users/Raed/Desktop/2100 final group/app/src/main/res/layout/activity_saved_post.xml" value="0.4041666666666667" />
-        <entry key="..\:/Users/Raed/Desktop/2100 final group/app/src/main/res/layout/activity_saved_posts.xml" value="0.4041666666666667" />
-        <entry key="..\:/Users/Raed/Desktop/2100 final group/app/src/main/res/layout/activity_user_information.xml" value="0.4041666666666667" />
-        <entry key="..\:/Users/Raed/Desktop/2100 final group/app/src/main/res/layout/user_holder.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout-land/activity_2.xml" value="0.6125" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout-land/activity_create_post.xml" value="0.6125" />
         <entry key="..\:/Users/Raed/Desktop/2100 project/app/src/main/res/layout-land/activity_forgot_password.xml" value="0.6125" />

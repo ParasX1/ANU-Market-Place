@@ -41,7 +41,7 @@
         android:id="@+id/textView"
         android:layout_width="271dp"
         android:layout_height="91dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="20dp"
         android:text="Please Upload a picture of yourself below! Please click on the profile image, then select the image you would like to  be your profile picture, then press the upload picture button!"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="@+id/cardView"

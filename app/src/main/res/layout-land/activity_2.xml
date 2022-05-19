@@ -10,10 +10,10 @@
 
         <Button
             android:id="@+id/trans_button_activity2"
-            android:layout_width="401dp"
+            android:layout_width="700dp"
             android:layout_height="92dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             app:backgroundTint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,8 +95,8 @@
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_layout2"
-        android:layout_width="404dp"
-        android:layout_height="424dp"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +104,7 @@
 
         <GridView
             android:id="@+id/item_grid"
-            android:layout_width="404dp"
+            android:layout_width="match_parent"
             android:layout_height="424dp"
             android:horizontalSpacing="15dp"
             android:numColumns="2"
@@ -146,7 +146,7 @@
 
     <SearchView
         android:id="@+id/Search_bar"
-        android:layout_width="354dp"
+        android:layout_width="680dp"
         android:layout_height="45dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
