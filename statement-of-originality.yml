@@ -20,6 +20,18 @@ code:
   - comment: glide library for image loading and decoding (and more). used for retrieving images from firebase database
     url: https://github.com/bumptech/glide
     licence: http://www.apache.org/licenses/LICENSE-2.0
+  - comment: swiping images
+    url: https://stackoverflow.com/questions/5101629/how-to-swipe-images
+    licence: Creative Commons
+  - comment: More Categories Activity and PostListing Activity and Activity2
+    url: Android Labs
+    licence: ANU
+  - comment: AVL Tree
+    url: Data Structure 1 lab
+    licence: ANU
+  - comment: Tokenizer/Parser
+    url: Tokenizer/Parser lab
+    licence: ANU
 
 
 # add as many "url+licence+comment" entries as necessary
