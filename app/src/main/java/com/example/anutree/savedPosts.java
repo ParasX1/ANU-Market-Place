@@ -47,22 +47,11 @@ import java.util.TimerTask;
 import javax.security.auth.callback.Callback;
 
 public class savedPosts extends AppCompatActivity {
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_posts);
-
         getDatabaseData();
-
-
-
-
 
     }
 

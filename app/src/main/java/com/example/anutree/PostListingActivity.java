@@ -53,7 +53,7 @@ public class PostListingActivity extends AppCompatActivity {
         Save_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PostListingActivity.this,"test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostListingActivity.this,"Post Saved!", Toast.LENGTH_SHORT).show();
                 Notification n = new Notification.Builder(PostListingActivity.this)
                         .setContentTitle("Post Saved")
                         .setContentText(PostTitle + " Has been saved to your profile!")
