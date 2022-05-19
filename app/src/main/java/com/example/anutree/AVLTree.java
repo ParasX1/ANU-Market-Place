@@ -74,33 +74,25 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
         else {
             return this;
         }
-        int balance = getBalanceFactor();
-
-        // Left Left Case
-        if (balance > 1 && (element.compareTo(leftNode.value) < 0)) {
-            return rightRotate();
+        if (avlTree.getBalanceFactor() < -1) {
+            if (element.compareTo(avlTree.rightNode.value) < 0) {
+                AVLTree<T> right = (AVLTree<T>) avlTree.rightNode;
+                right = right.rightRotate();
+                avlTree.rightNode = right;
+            }
+            avlTree = avlTree.leftRotate();
         }
 
-        // Right Right Case
-        if (balance < -1 && (element.compareTo(rightNode.value) > 0)) {
-            return leftRotate();
-        }
+        else if (avlTree.getBalanceFactor() > 1) {
+                if (element.compareTo(avlTree.leftNode.value) > 0) {
+                    AVLTree<T> left = (AVLTree<T>)  avlTree.leftNode;
+                    left = left.leftRotate();
+                    avlTree.leftNode = left;
+                }
+                avlTree = avlTree.rightRotate();
+            }
 
-        // Left Right Case
-        if (balance > 1 && (element.compareTo(leftNode.value) > 0)) {
-            AVLTree left = (AVLTree) leftNode;
-            leftNode = left.leftRotate();
-            return rightRotate();
-        }
-
-        // Right Left Case
-        if (balance < -1 && (element.compareTo(rightNode.value) < 0)) {
-            AVLTree right = (AVLTree) rightNode;
-            rightNode = right.rightRotate();
-            return leftRotate();
-        }
-        return this;
-
+            return avlTree; // Change to return something different
     }
 
     /**

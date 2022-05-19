@@ -42,7 +42,6 @@ public abstract class EmptyTree<T extends Comparable<T>> extends Tree<T> {
         return "{}";
     }
 
-    @Override
     public String display(int tabs) {
         return "null";
     }
