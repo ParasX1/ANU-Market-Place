@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class CreatePostActivity extends AppCompatActivity {
     private StorageReference storageReference;
     ImageView image_preview;
     Uri post_image;
+    private ProgressBar progressBar;
     public static boolean has_selected_image = false;
     Uri image_database_uri;
 
@@ -72,6 +74,7 @@ public class CreatePostActivity extends AppCompatActivity {
 //        boolean has_selected_image = false;
 
         // we are using multiple firebase databases
+        progressBar = findViewById(R.id.progressBar);
         storage = FirebaseStorage.getInstance(); // firebase storage
         storageReference = storage.getReference();
         FirebaseFirestore db = FirebaseFirestore.getInstance(); // firestore database
@@ -113,6 +116,7 @@ public class CreatePostActivity extends AppCompatActivity {
         create_post_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
 //                check if all entries valid
                 if (title_input.getText().toString().equals("") || price_input.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT).show();
@@ -173,7 +177,7 @@ public class CreatePostActivity extends AppCompatActivity {
                                                             @Override
                                                             public void onSuccess(DocumentReference documentReference) {
                                                                 // by here everything is saved and done
-
+                                                                progressBar.setVisibility(View.GONE);
                                                                 Toast.makeText(getApplicationContext(), "Post Created", Toast.LENGTH_SHORT).show();
                                                             }
                                                         });
