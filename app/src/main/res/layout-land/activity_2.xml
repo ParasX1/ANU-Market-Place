@@ -9,7 +9,7 @@
     tools:context=".Activity2">
 
         <Button
-            android:id="@+id/trans_button_activity2"
+            android:id="@+id/trans_button_activity3"
             android:layout_width="700dp"
             android:layout_height="92dp"
             android:layout_marginStart="2dp"
@@ -23,17 +23,17 @@
             app:layout_constraintVertical_bias="0.154" />
 
     <Button
-        android:id="@+id/button_car"
+        android:id="@+id/button_car2"
         android:layout_width="75dp"
         android:layout_height="80dp"
         android:drawableTop="@drawable/car"
         android:text=""
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity2"
-        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity2"
+        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity3"
+        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity3"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/trans_button_activity2"
-        app:layout_constraintTop_toTopOf="@+id/trans_button_activity2"
+        app:layout_constraintStart_toStartOf="@+id/trans_button_activity3"
+        app:layout_constraintTop_toTopOf="@+id/trans_button_activity3"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -43,11 +43,11 @@
         android:drawableTop="@drawable/house"
         android:text=""
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity2"
-        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity2"
+        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity3"
+        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity3"
         app:layout_constraintHorizontal_bias="0.271"
-        app:layout_constraintStart_toStartOf="@+id/trans_button_activity2"
-        app:layout_constraintTop_toTopOf="@+id/trans_button_activity2"
+        app:layout_constraintStart_toStartOf="@+id/trans_button_activity3"
+        app:layout_constraintTop_toTopOf="@+id/trans_button_activity3"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -57,11 +57,11 @@
         android:drawableTop="@drawable/phone"
         android:text=""
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity2"
-        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity2"
+        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity3"
+        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity3"
         app:layout_constraintHorizontal_bias="0.527"
-        app:layout_constraintStart_toStartOf="@+id/trans_button_activity2"
-        app:layout_constraintTop_toTopOf="@+id/trans_button_activity2"
+        app:layout_constraintStart_toStartOf="@+id/trans_button_activity3"
+        app:layout_constraintTop_toTopOf="@+id/trans_button_activity3"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -71,11 +71,11 @@
         android:drawableTop="@drawable/sport"
         android:text=""
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity2"
-        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity2"
+        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity3"
+        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity3"
         app:layout_constraintHorizontal_bias="0.772"
-        app:layout_constraintStart_toStartOf="@+id/trans_button_activity2"
-        app:layout_constraintTop_toTopOf="@+id/trans_button_activity2"
+        app:layout_constraintStart_toStartOf="@+id/trans_button_activity3"
+        app:layout_constraintTop_toTopOf="@+id/trans_button_activity3"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -86,21 +86,21 @@
         android:onClick="onMoreCategory"
         android:text=""
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity2"
-        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity2"
+        app:layout_constraintBottom_toBottomOf="@+id/trans_button_activity3"
+        app:layout_constraintEnd_toEndOf="@+id/trans_button_activity3"
         app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="@+id/trans_button_activity2"
-        app:layout_constraintTop_toTopOf="@+id/trans_button_activity2"
+        app:layout_constraintStart_toStartOf="@+id/trans_button_activity3"
+        app:layout_constraintTop_toTopOf="@+id/trans_button_activity3"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_layout2"
+        android:id="@+id/swipe_layout3"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trans_button_activity2">
+        app:layout_constraintTop_toBottomOf="@+id/trans_button_activity3">
 
         <GridView
             android:id="@+id/item_grid"
@@ -113,7 +113,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trans_button_activity2"
+            app:layout_constraintTop_toBottomOf="@+id/trans_button_activity3"
             app:layout_constraintVertical_bias="0.135" />
 
 
@@ -128,7 +128,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/swipe_layout2"
+            app:layout_constraintTop_toBottomOf="@+id/swipe_layout3"
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
@@ -140,7 +140,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.947"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/swipe_layout2"
+            app:layout_constraintTop_toBottomOf="@+id/swipe_layout3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
@@ -153,7 +153,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/trans_button_activity2"
+        app:layout_constraintBottom_toTopOf="@+id/trans_button_activity3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,7 +167,7 @@
         android:drawableTop="@drawable/info"
         android:onClick="on_more_info"
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button_car"
+        app:layout_constraintBottom_toTopOf="@+id/button_car2"
         app:layout_constraintEnd_toStartOf="@+id/Search_bar"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
