@@ -21,6 +21,20 @@ import java.util.Scanner;
  * return an expression which can be evaluated.
  */
 public class Parser {
+    private static Parser instance = null;
+
+    public Parser() {
+
+    }
+
+    public static Parser getInstance(){
+        if(instance == null)
+        {
+            instance = new Parser();
+            return instance;
+        }
+        else return instance;
+    }
     /**
      * The following exception should be thrown if the parse is faced with series of tokens that do not
      * correlate with any possible production rule.
@@ -79,27 +93,27 @@ public class Parser {
 
     /**
      * Adheres to the grammar rule:
-     * <exp>    ::= <exp> and <term> | <term>
+     * <exp>    ::= <term>
      *
      * @return type: Exp.
      */
     public Exp parseExp() {
-      return parseString();
+        return parseString();
     }
     // ########## YOUR CODE ENDS HERE ##########
 
     /**
      * Adheres to the grammar rule:
-     * <term>   ::=  <factor> | <factor> * <term> | <factor> / <term>
+     * <term>   ::=  String
      *
      * @return type: Exp.
      */
     public Exp parseString() {
-            if (tokenizer.current().getType() == Token.Type.STRING) {
-                return new StringExp(tokenizer.current().getToken());
-            }
-            else throw new IllegalProductionException("Input is invalid");
+        if (tokenizer.current().getType() == Token.Type.STRING) {
+            return new StringExp(tokenizer.current().getToken());
         }
+        else throw new IllegalProductionException("Input is invalid");
+    }
 
 
 }
