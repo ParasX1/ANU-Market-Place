@@ -68,7 +68,7 @@
 
     <EditText
         android:id="@+id/editTxtChat"
-        android:layout_width="314dp"
+        android:layout_width="631dp"
         android:layout_height="43dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="8dp"
@@ -76,11 +76,11 @@
         android:maxHeight="100dp"
         android:minWidth="200dp"
         android:minHeight="45dp"
-        app:layout_goneMarginBottom="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/send_button"
         app:layout_constraintHorizontal_bias="0.964"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_goneMarginBottom="7dp" />
 
     <ImageView
         android:id="@+id/send_button"

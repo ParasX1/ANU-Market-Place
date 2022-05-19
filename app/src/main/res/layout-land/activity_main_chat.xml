@@ -60,18 +60,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="406dp"
-            android:layout_height="580dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="16dp"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/chatbanner"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp" />
-
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
