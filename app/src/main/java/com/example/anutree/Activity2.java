@@ -90,7 +90,13 @@ public class Activity2 extends AppCompatActivity {
                 // This is where the parser and tokenizer stuff is goes i guess???
                 ArrayList<String> st;
                 st = titlesTree.findTitle(s);
-                System.out.println(st.toString());
+                Tokenizer tokenizer = new Tokenizer(s);
+                try{
+                    Exp exp = new Parser(tokenizer).parseExp();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),"Please use letters",Toast.LENGTH_SHORT).show();
+                }
                 processsearch(st);
 
                 return true;
