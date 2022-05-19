@@ -39,16 +39,21 @@ public class PostListingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(PostListingActivity.this,"test", Toast.LENGTH_SHORT).show();
                 Notification n = new Notification.Builder(PostListingActivity.this)
-                        .setContentTitle("Posts")
-                        .setContentText("You have saved a Post!!")
+                        .setContentTitle("Test")
+                        .setContentText("Hello world")
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .build();
+
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 notificationManager.notify(0, n);
                 savePost();
             }
+
             private void savePost() {
+
+
             }
+
         });
 
         ViewPager viewPager = findViewById(R.id.pager);

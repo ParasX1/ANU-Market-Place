@@ -31,8 +31,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-public class ImageAdapter2 extends BaseAdapter {
-
+public class
+ImageAdapter2 extends BaseAdapter {
     private Context context;
 
     //    ArrayList<Posts> posts = getDatabaseData(); // initialise list of posts
@@ -59,27 +59,25 @@ public class ImageAdapter2 extends BaseAdapter {
         this.item_description = item_description;
     }
 
+
+
     private ArrayList<Posts> getDatabaseData(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
-        // for now we dont need to limit how many posts we retrieve
-//        db.collection()
 //      read from database
-//        put all data in an arraylist
+//      put all data in an arraylist
         Log.d("uhm","THIS SHOULD BE DISPLAYS");
-        db.collection("posts").whereNotEqualTo("likes",99).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("posts").whereNotEqualTo("likes",-1).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){
                     for (QueryDocumentSnapshot document : task.getResult()){
-//                        Log.d("uhm",document.toObject(Posts.class).toString());
-//                        Log.d("uhm",document.getData().toString());
                         Map<String, Object> p = document.getData();
 //                        Log.d("uhm",p.get("title").toString());
 
                         Uri p_uri = Uri.parse(((String) p.get("imageURL")));
                         String title = ((String) p.get("title"));
-                        String author = ((String) p.get("author"));
+                        String author = ((String) p.get("author_id"));
                         Float price = ((Double) p.get("price")).floatValue();
                         int likes = (int) ((long) p.get("likes"));
                         String uid = ((String) p.get("uid"));

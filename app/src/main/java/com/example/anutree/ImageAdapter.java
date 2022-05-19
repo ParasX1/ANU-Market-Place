@@ -63,9 +63,9 @@ ImageAdapter extends BaseAdapter {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
 //      read from database
-//        put all data in an arraylist
+//      put all data in an arraylist
         Log.d("uhm","THIS SHOULD BE DISPLAYS");
-        db.collection("posts").whereNotEqualTo("likes",-1).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("posts").whereNotEqualTo("likes",-1).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){

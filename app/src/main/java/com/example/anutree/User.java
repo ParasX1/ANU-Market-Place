@@ -6,23 +6,27 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class User implements Parcelable {
     // Makes object to store in Firebase
     public String fullName,uID,email,password,pfp;
-    public ArrayList<String> savedPosts;
+    public List<String> savedPosts;
+    public List<String> savedPostsAuthor;
 
 
     public User()
     {}
 
-    public User(String fullName,String uID,String email,String password,String pfp,ArrayList<String> savedPosts) {
+    public User(String fullName, String uID, String email, String password, String pfp, List<String> savedPosts, List<String> savedPostsAuthor) {
         this.fullName =fullName;
         this.uID =uID;
         this.email =email;
         this.password =password;
         this.pfp =pfp;
-        this.savedPosts = new ArrayList<String >();
+        this.savedPosts = savedPosts;
+        this.savedPostsAuthor = savedPostsAuthor;
     }
 
 

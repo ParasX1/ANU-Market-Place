@@ -86,6 +86,12 @@ public class UserInformation extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference("User/"+FirebaseAuth.getInstance().getUid()+"/pfp").setValue(urlImg);
     }
 
+    public void on_saved_posts(View view){
+        Intent intent = new Intent(getApplicationContext(), savedPosts.class);
+        startActivity(intent);
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,4 +134,5 @@ public class UserInformation extends AppCompatActivity {
 
 
     }
+
 }
