@@ -85,7 +85,7 @@ public class MessageActivity extends AppCompatActivity {
                 .getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String myUID = snapshot.getValue(User.class).getuID();
+                String myUID = snapshot.getValue(User.class).getFullName();
                 if (usernameOfFriend.compareTo(myUID)>0) {  //comparing UIDs to create key
                     chatRoomId = myUID + uIDOfFriend;
                 }else if (usernameOfFriend.compareTo(myUID)==0) {
