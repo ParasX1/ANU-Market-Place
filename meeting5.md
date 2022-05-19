@@ -1,7 +1,7 @@
 # [PineAPPLE]
 
 
-## Team Meeting [5] - Week [11] - [17] (21:00 - 24:00)
+## Team Meeting [5] - Week [11] - [5/19/2022] (21:00 - 24:00)
 **Absent:**
 <br>
 **Lead/scribe: Alan Biju **
