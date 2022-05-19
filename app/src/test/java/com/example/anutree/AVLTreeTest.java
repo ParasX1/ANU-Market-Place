@@ -333,7 +333,9 @@ public class AVLTreeTest {
     public void extrTest() {
         AVLTree<String> avl = new AVLTree<>("")
                 .insert("a")
-                .insert("b");
+                .insert("Item").insert("itemsf").insert("Oil painting");
+        avl = avl.insert("iron man suitcase");
         System.out.println(avl.toString());
+        System.out.println(avl.findTitle("iron"));
     }
 }

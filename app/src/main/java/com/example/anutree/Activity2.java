@@ -35,6 +35,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -45,7 +47,7 @@ public class Activity2 extends AppCompatActivity {
 //        private final ArrayList<String> item_description = new ArrayList<String>(Arrays.asList("belt", "car", "pc", "hat", "jeans", "puffer", "mac", "monitor"));
 //    private String[] item_description = {"belt"};
     private SwipeRefreshLayout swipe;
-
+    private AVLTree<String> titlesTree = new AVLTree<>("");
 
 
     @Override
@@ -53,10 +55,10 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-        Button appearance = findViewById(R.id.trans_button_activity3);
+        Button appearance = findViewById(R.id.trans_button_activity2);
         appearance.setClickable(false);
 
-        swipe = findViewById(R.id.swipe_layout3);
+        swipe = findViewById(R.id.swipe_layout2);
 
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -87,17 +89,9 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 // This is where the parser and tokenizer stuff is goes i guess???
-                Tokenizer tokenizer = new Tokenizer(s);
-                boolean invalid = false;
-                try{
-                    Exp exp = new Parser(tokenizer).parseExp();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(),"Invalid input. Must include letters.",Toast.LENGTH_SHORT).show();
-                    invalid = true;
-                }
-                if(s.isEmpty() & !invalid) getDatabaseData();
-                else processsearch(s);
+                ArrayList<String> st;
+                st = titlesTree.findTitle(s);
+                processsearch(st);
                 return true;
             }
 
@@ -112,7 +106,7 @@ public class Activity2 extends AppCompatActivity {
         search.setOnQueryTextListener(queryTextListener);
 
 
-        Button message = findViewById(R.id.button_car2);  // MESSAGING APP CUZ WE DONT HAVE A BUTTON YET
+        Button message = findViewById(R.id.button_car);  // MESSAGING APP CUZ WE DONT HAVE A BUTTON YET
         message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view){
@@ -137,6 +131,7 @@ public class Activity2 extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
+        titlesTree = new AVLTree<>("");
 
         postList.clear(); //swipe to refresh needs this to be cleared
 
@@ -163,6 +158,7 @@ public class Activity2 extends AppCompatActivity {
 //                        Log.d("uhm", post.toString());
                         // add post to arraylist
                         postList.add(post);
+                        titlesTree = titlesTree.insert(title.toLowerCase());
 
                     }
                     // all this stuff was originally inside the oncreate method
@@ -212,7 +208,7 @@ public class Activity2 extends AppCompatActivity {
 //        return postList;
     }
 
-    private void processsearch(String s) {
+    private void processsearch(ArrayList<String> s) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Posts> postList = new ArrayList<>(); // initialise list
@@ -220,7 +216,7 @@ public class Activity2 extends AppCompatActivity {
         postList.clear(); //swipe to refresh needs this to be cleared
 
 //        Log.d("uhm", "THIS SHOULD BE DISPLAYED");
-        db.collection("posts").orderBy("title").startAt(s).endAt(s+'\uf8ff').limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("posts").whereNotEqualTo("likes", -1).limit(30).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -241,7 +237,7 @@ public class Activity2 extends AppCompatActivity {
                         Posts post = new Posts(title, price, likes, desc, author,name, p_uri);
 //                        Log.d("uhm", post.toString());
                         // add post to arraylist
-                        postList.add(post);
+                        if (s.contains(title)) postList.add(post);
 
                     }
                     // all this stuff was originally inside the oncreate method
