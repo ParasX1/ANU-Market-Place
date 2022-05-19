@@ -84,15 +84,15 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
         }
 
         else if (avlTree.getBalanceFactor() > 1) {
-                if (element.compareTo(avlTree.leftNode.value) > 0) {
-                    AVLTree<T> left = (AVLTree<T>)  avlTree.leftNode;
-                    left = left.leftRotate();
-                    avlTree.leftNode = left;
-                }
-                avlTree = avlTree.rightRotate();
+            if (element.compareTo(avlTree.leftNode.value) > 0) {
+                AVLTree<T> left = (AVLTree<T>)  avlTree.leftNode;
+                left = left.leftRotate();
+                avlTree.leftNode = left;
             }
+            avlTree = avlTree.rightRotate();
+        }
 
-            return avlTree; // Change to return something different
+        return avlTree; // Change to return something different
     }
 
     /**
@@ -103,8 +103,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 
         if(title == null) throw new IllegalArgumentException("Input is null!");
 
-        final int compareTo = title.toLowerCase().compareTo(value.toString().toLowerCase());
-        if (value.toString().toLowerCase().contains(title.toLowerCase()) || compareTo == 0) {
+        if (value.toString().toLowerCase().contains(title.toLowerCase()) || title.toLowerCase().compareTo(value.toString().toLowerCase()) == 0) {
             titles.add(this.value);
             System.out.println("found"+this.value);
             if (!(rightNode instanceof AVLTree.EmptyAVL)) {
@@ -115,17 +114,20 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
                 titles.addAll(((AVLTree<T>) leftNode).findTitle(title));
             }
         }
-        else if (compareTo < 0) {
+        else if (title.toLowerCase().compareTo(value.toString().toLowerCase()) < 0) {
+            System.out.println("saw"+this.value);
             if (!(leftNode instanceof AVLTree.EmptyAVL)) {
                 titles.addAll(((AVLTree<T>) leftNode).findTitle(title));
             }
-        } else if ((compareTo > 0)) {
+        } else if ((title.toLowerCase().compareTo(value.toString().toLowerCase()) > 0)) {
+            System.out.println("saw"+this.value);
             if (!(rightNode instanceof AVLTree.EmptyAVL)) {
                 titles.addAll(((AVLTree<T>) rightNode).findTitle(title));
             }
         }
         return titles;
     }
+
 
     /**
      * Conducts a left rotation on the current node.
@@ -198,4 +200,5 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
         }
     }
 }
+
 
