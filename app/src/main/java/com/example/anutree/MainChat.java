@@ -106,15 +106,19 @@ public class MainChat extends AppCompatActivity {
                 recyclerView.setVisibility(View.VISIBLE);
 
                 for (User users:users) { //To find own pfp to display in MessageActivity
-                    if (users.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
-                        myPfpUrl = users.getPfp();
-                        return;
+                    if(users.getEmail() != null) {
+                        if (users.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+                            myPfpUrl = users.getPfp();
+                            return;
+                        }
                     }
                 }
                 for (User users:users) { //To create chatroom unique ID
-                    if (users.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
-                        myUID = users.getuID();
-                        return;
+                    if (users.getuID() != null) {
+                        if (users.getuID().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                            myUID = users.getuID();
+                            return;
+                        }
                     }
                 }
 
