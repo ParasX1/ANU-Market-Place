@@ -10,7 +10,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="385dp"
+        android:layout_width="650dp"
         android:layout_height="match_parent"
         android:padding="8dp">
 
