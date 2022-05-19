@@ -55,10 +55,10 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-        Button appearance = findViewById(R.id.trans_button_activity2);
+        Button appearance = findViewById(R.id.trans_button_activity3);
         appearance.setClickable(false);
 
-        swipe = findViewById(R.id.swipe_layout2);
+        swipe = findViewById(R.id.swipe_layout3);
 
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -91,7 +91,9 @@ public class Activity2 extends AppCompatActivity {
                 // This is where the parser and tokenizer stuff is goes i guess???
                 ArrayList<String> st;
                 st = titlesTree.findTitle(s);
+                System.out.println(st.toString());
                 processsearch(st);
+
                 return true;
             }
 
@@ -106,7 +108,7 @@ public class Activity2 extends AppCompatActivity {
         search.setOnQueryTextListener(queryTextListener);
 
 
-        Button message = findViewById(R.id.button_car);  // MESSAGING APP CUZ WE DONT HAVE A BUTTON YET
+        Button message = findViewById(R.id.button_car2);  // MESSAGING APP CUZ WE DONT HAVE A BUTTON YET
         message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view){
@@ -237,7 +239,7 @@ public class Activity2 extends AppCompatActivity {
                         Posts post = new Posts(title, price, likes, desc, author,name, p_uri);
 //                        Log.d("uhm", post.toString());
                         // add post to arraylist
-                        if (s.contains(title)) postList.add(post);
+                        if (s.contains(title.toLowerCase())) postList.add(post);
 
                     }
                     // all this stuff was originally inside the oncreate method

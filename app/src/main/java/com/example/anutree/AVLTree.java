@@ -103,7 +103,8 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 
         if(title == null) throw new IllegalArgumentException("Input is null!");
 
-        if (value.toString().toLowerCase().contains(title.toLowerCase()) || title.toLowerCase().compareTo(value.toString().toLowerCase()) == 0) {
+        final int compareTo = title.toLowerCase().compareTo(value.toString().toLowerCase());
+        if (value.toString().toLowerCase().contains(title.toLowerCase()) || compareTo == 0) {
             titles.add(this.value);
             System.out.println("found"+this.value);
             if (!(rightNode instanceof AVLTree.EmptyAVL)) {
@@ -114,13 +115,11 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
                 titles.addAll(((AVLTree<T>) leftNode).findTitle(title));
             }
         }
-        else if (title.toLowerCase().compareTo(value.toString().toLowerCase()) < 0) {
-            System.out.println("saw"+this.value);
+        else if (compareTo < 0) {
             if (!(leftNode instanceof AVLTree.EmptyAVL)) {
                 titles.addAll(((AVLTree<T>) leftNode).findTitle(title));
             }
-        } else if ((title.toLowerCase().compareTo(value.toString().toLowerCase()) > 0)) {
-            System.out.println("saw"+this.value);
+        } else if ((compareTo > 0)) {
             if (!(rightNode instanceof AVLTree.EmptyAVL)) {
                 titles.addAll(((AVLTree<T>) rightNode).findTitle(title));
             }
