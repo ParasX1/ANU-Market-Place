@@ -43,17 +43,12 @@ public class PostListingActivity extends AppCompatActivity {
                         .setContentText("You have saved a Post!!")
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .build();
-
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 notificationManager.notify(0, n);
                 savePost();
             }
-
             private void savePost() {
-
-
             }
-
         });
 
         ViewPager viewPager = findViewById(R.id.pager);
