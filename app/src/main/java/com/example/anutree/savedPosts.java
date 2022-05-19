@@ -96,6 +96,7 @@ public class savedPosts extends AppCompatActivity {
                                                         savedAuthor.add(user.savedPostsAuthor.get(i));
                                                     }
                                                 }
+
                                                 break;
 
                                             }
@@ -156,7 +157,7 @@ public class savedPosts extends AppCompatActivity {
                                     bar.setVisibility(View.GONE);
                                     for(Posts post: postList){
                                         if(saved.contains(post.title)){
-                                            if(savedAuthor.contains(post.author_id)){
+                                            if(savedAuthor.contains(post.author_id) && post.equals(post)){
                                                 saved_Posts.add(post);
                                             }
 

@@ -1,5 +1,6 @@
 package com.example.anutree;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -21,8 +22,16 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostListingActivity extends AppCompatActivity {
 
@@ -30,6 +39,13 @@ public class PostListingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_listing);
+        List<String> saved = new ArrayList<>();
+        List<String> savedAuthor = new ArrayList<>();
+        String uid;
+
+        Intent intent = getIntent();
+        String PostTitle = intent.getStringExtra("title");
+        String PostAuthor = intent.getStringExtra("author_id");
 
 //        Toast.makeText(PostListingActivity.this,"test", Toast.LENGTH_SHORT).show();
         Button Save_post = (Button) findViewById(R.id.save_post);
@@ -50,7 +66,43 @@ public class PostListingActivity extends AppCompatActivity {
             }
 
             private void savePost() {
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                String Current_email = currentUser.getEmail();
 
+                FirebaseDatabase.getInstance().getReference().child("User")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                    User user = snapshot.getValue(User.class);
+                                    if(user != null && user.getEmail() != null){
+                                        if(user.getEmail().equalsIgnoreCase(Current_email)){
+                                            for(int i = 0; i < user.savedPosts.size(); i++){
+                                                saved.add(user.savedPosts.get(i));
+                                            }
+
+                                            for(int i = 0; i < user.savedPostsAuthor.size(); i++){
+                                                if(user.savedPostsAuthor.get(i) != null){
+                                                    savedAuthor.add(user.savedPostsAuthor.get(i));
+                                                }
+
+                                            }
+                                            saved.add(PostTitle);
+                                            savedAuthor.add(PostAuthor);
+                                            break;
+                                        }
+                                    }
+
+
+                                }
+                                FirebaseDatabase.getInstance().getReference().child("User").child(currentUser.getUid()).child("savedPosts").setValue(saved);
+                                FirebaseDatabase.getInstance().getReference().child("User").child(currentUser.getUid()).child("savedPostsAuthor").setValue(savedAuthor);
+
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                            }
+                        });
 
             }
 
