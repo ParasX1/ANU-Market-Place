@@ -103,9 +103,8 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 
         if(title == null) throw new IllegalArgumentException("Input is null!");
 
-        if (value.toString().toLowerCase().contains(title.toLowerCase()) || title.toLowerCase().compareTo(value.toString().toLowerCase()) == 0) {
+        if (value.toString().toLowerCase().contains(title.toLowerCase()) & !(title.toLowerCase().compareTo(value.toString().toLowerCase()) == 0)) {
             titles.add(this.value);
-            System.out.println("found"+this.value);
             if (!(rightNode instanceof AVLTree.EmptyAVL)) {
                 AVLTree<T> newRight = (AVLTree<T>) this.rightNode;
                 titles.addAll(newRight.findTitle(title));
@@ -114,13 +113,20 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
                 titles.addAll(((AVLTree<T>) leftNode).findTitle(title));
             }
         }
-        else if (title.toLowerCase().compareTo(value.toString().toLowerCase()) < 0) {
-            System.out.println("saw"+this.value);
+        if (title.toLowerCase().compareTo(value.toString().toLowerCase()) == 0) {
+            titles.add(this.value);
+            if (!(rightNode instanceof AVLTree.EmptyAVL)) {
+                AVLTree<T> newRight = (AVLTree<T>) this.rightNode;
+                titles.addAll(newRight.findTitle(title));
+            }
             if (!(leftNode instanceof AVLTree.EmptyAVL)) {
                 titles.addAll(((AVLTree<T>) leftNode).findTitle(title));
             }
-        } else if ((title.toLowerCase().compareTo(value.toString().toLowerCase()) > 0)) {
-            System.out.println("saw"+this.value);
+        } else if (title.toLowerCase().compareTo(value.toString().toLowerCase()) < 0) {
+            if (!(leftNode instanceof AVLTree.EmptyAVL)) {
+                titles.addAll(((AVLTree<T>) leftNode).findTitle(title));
+            }
+        } else {
             if (!(rightNode instanceof AVLTree.EmptyAVL)) {
                 titles.addAll(((AVLTree<T>) rightNode).findTitle(title));
             }
