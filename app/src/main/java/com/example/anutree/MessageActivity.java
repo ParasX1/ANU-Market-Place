@@ -85,7 +85,7 @@ public class MessageActivity extends AppCompatActivity {
                 .getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String myUID = snapshot.getValue(User.class).getuID();
+                String myUID = snapshot.getValue(User.class).getFullName();
                 if (usernameOfFriend.compareTo(myUID)>0) {  //comparing UIDs to create key
                     chatRoomId = myUID + uIDOfFriend;
                 }else if (usernameOfFriend.compareTo(myUID)==0) {
@@ -101,14 +101,13 @@ public class MessageActivity extends AppCompatActivity {
         });
     }
 
-
     private void attachMessageListener(String chatRoomId) { //listener to update msgs to database
         FirebaseDatabase.getInstance().getReference("messages/"+chatRoomId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listOfMessages.clear(); //Wipes all msgs to re write it with update
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()) { //loops through and adds messages to array
-                   listOfMessages.add(dataSnapshot.getValue(Message.class));
+                    listOfMessages.add(dataSnapshot.getValue(Message.class));
                 }
                 messageAdapter.notifyDataSetChanged(); //to re run/notify
                 recyclerViewl.scrollToPosition(listOfMessages.size()-1); //Auto scrolls to bottom of page
