@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
             Intent i = new Intent(getApplicationContext(),Activity2.class);
             startActivity(i);
+            finish();
             //redirect to user profile if already signed in
             Toast.makeText(MainActivity.this,"Welcome to ANU Marketplace!", Toast.LENGTH_LONG).show();
             progressBar.setVisibility(View.GONE);
