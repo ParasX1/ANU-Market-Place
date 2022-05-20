@@ -17,15 +17,16 @@ The following is a report template to help your team successfully provide all th
 ## Table of Contents
 
 1. [Team Members and Roles](#team-members-and-roles)
-2. [Summary of Individual Contributions](#summary-of-individual-contributions)
-3. [Conflict Resolution Protocol](#conflict-resolution-protocol)
-4. [Application Description](#application-description)
-5. [Application UML](#application-uml)
-6. [Application Design and Decisions](#application-design-and-decisions)
-7. [Summary of Known Errors and Bugs](#summary-of-known-errors-and-bugs)
-8. [Testing Summary](#testing-summary)
-9. [Implemented Features](#implemented-features)
-10. [Team Meetings](#team-meetings)
+2. [Basic Description / Features of our app](#basic-description-and-features-of-our-app)
+3. [Summary of Individual Contributions](#summary-of-individual-contributions)
+4. [Conflict Resolution Protocol](#conflict-resolution-protocol)
+5. [Application Description](#application-description)
+6. [Application UML](#application-uml)
+7. [Application Design and Decisions](#application-design-and-decisions)
+8. [Summary of Known Errors and Bugs](#summary-of-known-errors-and-bugs)
+9. [Testing Summary](#testing-summary)
+10. [Implemented Features](#implemented-features)
+11. [Team Meetings](#team-meetings)
 
 ## Team Members and Roles
 
@@ -36,10 +37,76 @@ The following is a report template to help your team successfully provide all th
 | [uid] | Alan Biju | [role] |
 | [uid] | Raed Abdulnoor | [role] |
 
+## Basic Description and Features Of Our App
+Our App:
+  ANU Marketplace: A place to buy sell used goods in a safe ANU community.
+
+Why we chose this app to develop:
+  Students these days are quite burdened financially by many aspects of life, ranging from moving out and working to Uni fees, all causing lots of stress. As the goal of this group project was to develop a app that does "Social Good", we chose to tackle this problem faced by many students at the ANU. As such we came up with a idea of a app which would allow students of the ANU to form a close community who would buy and sell used goods. This app would be called "ANU Marketplace". We thought limiting the app to ANU students for the time being would eliminate forms of trolling/scamming as to sign up to the app it will be requiring your studnent UID number. As such if any "bad behaviour" was to occur it can be brought to ANUs eyes and dealt with, resulting in a very safe buying and selling enviroment. To accomplish this goal of a "Market place" we would have to complete the key functionality of which a student has the ability to post ads with pictures, have a way to contact them, have a secure application using validification to make sure no one can steal protected information, and the ability to have a cool customisable profile. As such we chose our "feature goals" as follows:
+
+- - 1 Hard Feature:
+    Provide users with the ability to message each other or an institution directly (e.g., a user can message an event/movement that is managed by another user). (hard) (Done: Paras)
+
+- - 3 Medium Features:
+    Search functionality can handle partially valid and invalid search queries. (medium) (Done: Alan)
+
+    Use Firebase to persist all data used in your app (this item replaces the requirement to retrieve data from a local file) (medium) (Done: Paras,Alan,Raed,Raymond)
+
+    The ability to send notifications based on different types of interactions (posts, likes follows, abuse reports, etc). A notification must be sent only after a predetermined number of interactions are set (>= 2 interactions [e.g., one like and one follow or two likes or two follows]). Note that it is not mandatory to use the Android Notification classes. (medium)  (Done - save posts : Raed/Raymond)
+- - 5 Easy Features:
+    Use Firebase to implement user Authentication/Authorisation. (easy) (Done:Paras)
+
+    The ability to micro-interact with items in your app (e.g. like/dislike/support/report a post/message/event) [stored in-memory]. (easy) (Raymond)
+
+    Process visualisation. Your app may implement a graphical element to visualise the progress of a process/event. (easy) (Done:Paras, Raed)
+
+    UI must have portrait and landscape layout variants as well as support for different screen sizes. Simply using Android studio's automated support for orientation and screen sizes and or creating support without effort to make them look reasonable will net you zero marks. (easy) (Semi Done: Paras,Raed)
+
+    User profile activity containing a media file (image, animation (e.g. gif), video). (easy) (Done:Raed,Paras)
+
 ## Summary of Individual Contributions
 
 Contributions Paras:
- - jjf
+- Code Implementation/ Design for the Chat/Login functions
+- Code/UI design for Login/Chat as well as Landscape orientation (Chat and Login/Registration/Forgot Password UI design)
+- Assistance with activity2 (Refresh/Realtime updates)
+- Profile Activity (uploading/chosing images and storing them)
+- User object creation (Storing important information, such as Name,Email, Uid, Password, Profile Picture and )
+- Report (Intro/Description)
+
+u7291471 , Paras Patange, I contributed __% of the code, Specific contributions are:
+Classes/Activity:
+ - MainActivity: 100% Contribution
+ - registerUser: 100% Contribution
+ - forgotPassword: 100% Contribution
+ - MainChat: 100% Contribution
+ - MessageActivity: 100% Contribution
+ - MessageProfile: 100% Contribution
+ - UserAdapter: 100% Contribution
+ - MessageAdapter: 100% Contribution
+ - Activty2: 10% Contribution Lines()
+ - UserInformation: 15% Contribution Lines(41 - 87,)
+ - User: 95% Contribution
+UI:
+ - ALL LANDSCAPE UI VARIENTS (EXCEPTION:activity_saved_posts)
+ - activity_main: 100% Contribution
+ - activity_register_user: 100% Contribution
+ - activity_forgot_password: 100% Contribution
+ - activity_main_chat: 100% Contribution
+ - activity_message: 100% Contribution
+ - activity_message_profile: 100% Contribution
+ - message_holder: 100% Contribution
+ - activity_2: 5% (Some error fixes)
+ - activity_user_information: 15% Contribution (Lines 10 - 26)
+Design:
+ - Suggested AVL Trees, to store/search posts, instead of B tree as AVL is self balancing.
+Report:
+  - Report (Intro/Description)
+Slide Presentation:
+  - Helped in creation (25% contribution)
+Miscellaneous:
+  - Organised some group meetings.
+
 
 *[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*
 
@@ -63,6 +130,10 @@ Contributions Paras:
 *[Miscellaneous contributions. You are welcome to provide anything that you consider as a contribution to the project or team.]*
 
 ## Conflict Resolution Protocol
+
+The conflict resolution protocal was voting, we all would take turns in verbally explaining reasoning for what we should do:
+
+e.g. AVL tree,....
 
 *[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem? (If you choose to make this an external document, link to it here)]*
 
