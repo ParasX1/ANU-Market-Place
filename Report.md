@@ -80,11 +80,7 @@ u7291471 , Paras Patange, I contributed __% of the code, Specific contributions 
     - activity_main: 100% Contribution
     - activity_register_user: 100% Contribution
     - activity_forgot_password: 100% Contribution
-    - activity_main_chat: 100% Contribution
-    - activity_message: 100% Contribution
-    - activity_message_profile: 100% Contribution
     - message_holder: 100% Contribution
-    - activity_2: 5% (Some error fixes)
     - activity_user_information: 15% Contribution (Lines 10 - 26)
   - Design:
     - Suggested AVL Trees, to store/search posts, instead of B tree as AVL is self balancing.
@@ -115,6 +111,8 @@ u7298779 , Raed Abdulnoor, I contributed __% of the code, Specific contributions
     - activity_saved_posts layout 100% contribution
     - activity_user_information layout 100% contribution
     - grid_item xml layout 100% contribution
+    - activity_main_chat: 100% Contribution
+    
        
  Contributions Alan:
 - Designed Grammar
@@ -134,6 +132,7 @@ u7315765 , Alan Biju, I contributed __% of the code, Specific contributions are:
   - UI:  
     - MoreCategories layout: 100% contribution
     - PostListing layout: 100% contribution
+    - activity_2: 5% (Some error fixes)
 
 
 Contributions Raymond:
@@ -156,6 +155,8 @@ u7282825 , Raymond Improgo, I contributed __% of the code, Specific contribution
 
   - UI:
     - activity_create_post.xml: 100%
+    - activity_message: 100% Contribution
+    - activity_message_profile: 100% Contribution
 
 
 ## Conflict Resolution Protocol
