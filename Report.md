@@ -252,7 +252,7 @@ as the meeting is taking place on campus and the seller is a student at ANU*
 
 *[What design patterns did your team utilise? Where and why?]*
 Factory:
-  The User class is a factory method
+  The User class is a factory method which produces different instances of User
 
 Singleton:
   A singleton design pattern was used in the Parser.java class. This is because only one instance of parser is ever necessary. You are not going to
@@ -272,10 +272,7 @@ We designed the grammar for the search function so we had to think about how it 
 **Tokenizer and Parsers**
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
-
-**Surpise Item**
-
-*[If you implement the surprise item, explain how your solution addresses the surprise task. What decisions do your team make in addressing the problem?]*
+I use the tokenisers and parsers in Activity2.java where the search is implemented. This design allows us to use a try/catch clause to let the user know whenever the search they made violated the grammar. With this informative message, the user is able to change their search so that it successfully parses and our program can interpret the search.
 
 **Other**
 
