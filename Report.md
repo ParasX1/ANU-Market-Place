@@ -288,6 +288,12 @@ Example Use Cases:
 
 ## Testing Summary
 
+Non-JUint Testing:
+  - Visual Testing was conducted for Landsacpe orientation UI. (Pixel 2, 2XL, 3aXL, 3XL)
+  - Visual Testing was conducted for Chat/Login Implementation. (Pixel 2, 2XL, 3aXL, 3XL) (Low coverage,4 Test Devices)
+
+
+
 *[What features have you tested? What is your testing coverage?]*
 
 *Here is an example:*
