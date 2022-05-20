@@ -47,6 +47,8 @@ Why we chose this app to develop:
 - - 1 Hard Feature:
     Provide users with the ability to message each other or an institution directly (e.g., a user can message an event/movement that is managed by another user). (hard) (Done: Paras)
 
+    Using Firebase or another remote database to store user information and having the app updated as the remote database is updated without restarting the application. E.g. User A makes a transfer, user B on a separate instance of the application sees user A’s transfer appear on their app instance without restarting their application. (very hard) (Chat, Posts Updates Automatic,refresh on pull)
+
 - - 3 Medium Features:
     Search functionality can handle partially valid and invalid search queries. (medium) (Done: Alan)
 
@@ -310,6 +312,8 @@ Non-JUint Testing:
 
 - - 1 Hard Feature:
     Provide users with the ability to message each other or an institution directly (e.g., a user can message an event/movement that is managed by another user). (hard) (Done: Paras)
+    
+    Using Firebase or another remote database to store user information and having the app updated as the remote database is updated without restarting the application. E.g. User A makes a transfer, user B on a separate instance of the application sees user A’s transfer appear on their app instance without restarting their application. (very hard) (Chat, Posts Updates Automatic,refresh on pull)
 
 - - 3 Medium Features:
     Search functionality can handle partially valid and invalid search queries. (medium) (Done: Alan)
