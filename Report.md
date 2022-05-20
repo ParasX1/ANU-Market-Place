@@ -236,11 +236,8 @@ as the meeting is taking place on campus and the seller is a student at ANU*
      
      * *Avoids using two seperate structures*
 
-3. ...
-
 **Design Patterns**
 
-*[What design patterns did your team utilise? Where and why?]*
 Factory:
   The User class is a factory method which produces different instances of User. This is because User needs to create multiple objects with
   different properties.
@@ -248,7 +245,9 @@ Factory:
 Singleton:
   A singleton design pattern was used in the Parser.java class. This is because only one instance of parser is ever necessary. You are not going to
   parse two seperate searches at the same time.
-  
+
+Facade:
+  A Facade design pattern was semi implemented in the MainChat.java class. This is because the chat implementation is complex, and this class hides other component classes.
 
 **Grammar(s)**
 
@@ -267,11 +266,8 @@ I use the tokenisers and parsers in Activity2.java where the search is implement
 
 **Other**
 
-*[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
 
 ## Summary of Known Errors and Bugs
-
-*[Where are the known errors and bugs? What consequences might they lead to?]*
 
 *Here is an example:*
 
@@ -299,7 +295,10 @@ I use the tokenisers and parsers in Activity2.java where the search is implement
 - *To chat to your friend, there is no search function, as such its very dificult to find user to message who owns the post*
 - Consequence: Possible frustration, however in the post the uID of the postee is mentioned, as such emailing is still possible.
 
-*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
+7. *Bug 7:*
+- *Sometimes the catagories button doesnt show up till, it is clicked*
+- Consequence: Possible frustration, however very little impact to the functionality.
+
 
 ## Testing Summary
 
@@ -315,7 +314,6 @@ Non-JUint Testing:
 
 *Types of tests created: JUnit tests, Black box testing for basic tree, White box testing for findTitle function, assertion tests, timeout tests. Tests outside of JUnit were done for findTitle using random inputs from an AVLtree with titles from firebase.*
 
-*Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
 
 ![AVL Tree Testing](https://gitlab.cecs.anu.edu.au/u7298779/comp2100-group_project/-/blob/main/Testing.PNG)
 
@@ -353,5 +351,3 @@ Non-JUint Testing:
 - *[meeting4](./MeetingTemplate.md)*
 - *[meeting5](./MeetingTemplate.md)*
 
-
-*Either write your meeting minutes here or link to documents that contain them. There must be at least 4 team meetings. Note that you must commit your minute meetings shortly after your meeting has taken place (e.g., within 24h), otherwise your meeting minute will not be accepted.*
