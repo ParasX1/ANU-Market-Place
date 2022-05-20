@@ -231,40 +231,55 @@ Example Use Cases:
 
 *I used the following data structures in my project:*
 
-1. *LinkedList*
+1. *AVLtree*
 
-   * *Objective: It is used for storing xxxx for xxx feature.*
+   * *Objective: It is used for the partial search function.*
 
-   * *Locations: line xxx in XXX.java, ..., etc.*
+   * *Locations: line 102 in AVLtree.java, line 93,170 in Activty2.java.*
 
    * *Reasons:*
 
-     * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
+     * *It allows for searching substrings of titles without going through every title*
 
-     * *We don't need to access the item by index for this feature*
+     * *More efficient*
 
-2. ...
+2. *Map*
+
+   * *Objective: It is used track the names for each object in the database.*
+
+   * *Locations: line 73 in ImageAdapter.java, line 154 in Activty2.java.*
+
+   * *Reasons:*
+
+     * *Allows objects to be linked to their title*
+
+     * *Allows easy recall of objects using this title*
+     
+     * *Avoids using two seperate structures*
+
 
 3. ...
-
-**Data Structures**
-
-*[What data structures did your team utilise? Where and why?]*
 
 **Design Patterns**
 
 *[What design patterns did your team utilise? Where and why?]*
+Factory:
+  The User class is a factory method
+
+Singleton:
+  A singleton design pattern was used in the Parser.java class. This is because only one instance of parser is ever necessary. You are not going to
+  parse two seperate searches at the same time.
+  
 
 **Grammar(s)**
 
 <br> *Production Rules* <br>
-\<Non-Terminal> ::= \<some output>
+\<Exp> ::= \<String>
 <br>
-\<Non-Terminal> ::= \<some output>
+\<String> ::= \<Characters>
 
 *[How do you design the grammar? What are the advantages of your designs?]*
-
-*If there are several grammars, list them all under this section and what they relate to.*
+We designed the grammar for the search function so we had to think about how it would be used. We realised just a stream of numbers would never yield anything useful so we designed the grammar accordingly. The advantages of this grammar is it requires users to use letters when searching for posts.
 
 **Tokenizer and Parsers**
 
