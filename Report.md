@@ -130,8 +130,24 @@ u7298779 , Raed Abdulnoor, I contributed __% of the code, Specific contributions
     - activity_user_information layout 100% contribution
     - grid_item xml layout 100% contribution
        
+ Contributions Alan:
+- Designed Grammar
+- Implemented tokenizer and parser
+- Implemented partial/impartial search in Activity 2
+- Implemented AVL tree with function for searching
+- Report (Application Designs and Decisions)
 
+u7315765 , Alan Biju, I contributed __% of the code, Specific contributions are:
+  - Classes/Activity:
+    - Tree/AVLtree/BinarySearchTree/EmptyTree: 100% contribution
+    - Adapter: 20% contribution
+    - Activity2: 30% contribution
+    - Parser: 100% contribution
+    - Token/Tokenizer/Exp/IntExp/StringExp: 100% contribution
 
+  - UI:  
+    - MoreCategories layout: 100% contribution
+    - PostListing layout: 100% contribution
 
 
 
