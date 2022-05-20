@@ -150,6 +150,24 @@ u7315765 , Alan Biju, I contributed __% of the code, Specific contributions are:
     - PostListing layout: 100% contribution
 
 
+Contributions Raymond:
+- Implementation of Post object creation
+- Saving Posts too firebase database 
+- Assistance in activity2 implementation (displaying the grid view with the Post opbects)
+
+u7282825 , Raymond Improgo, I contributed __% of the code, Specific contributions are:
+  - Classes/Activity:
+    - CreatePostActivity: 100%
+    - Posts: 100%
+    - User: 5%
+    - Activity2: 5%
+    - ImageAdapter: 85%
+    - PostListingActivity: 100%
+    - Adapter: 80% contribution
+
+  - UI:
+    - activity_create_post.xml: 100%
+
 
 
 *[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*
