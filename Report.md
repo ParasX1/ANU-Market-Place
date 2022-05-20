@@ -247,12 +247,28 @@ Example Use Cases:
 *Here is an example:*
 
 1. *Bug 1:*
-
-- *A space bar (' ') in the sign in email will crash the application.*
-- ...
+- *During signup the UID can be manipulated, in a non acceptable way, if you fill out the registration fast enough it will allow non-acceptable variations such as u2093092, or -320433, a basic password check function has been implmented*
+- Consequence: Results in problematic user profiles, and possible errors in creation of chat rooms ids. 
 
 2. *Bug 2:*
-3. ...
+- *When messaging another user, the other users profile pic wont show up at the top of the chat, possibly due to a variable misnamed, which could not be pinpointed*
+- Consequence: Results in possible error to talking to the wrong friend, however the name of the friend is also displayed, so the impact is low. As such the error is mostly cosmetic.
+
+3. *Bug 3:*
+- *When searching in activity 2, for posts, the signout button floats to the top, was a easy fix we missed. Only was missing a constraint*
+- Consequence: Accidental signout is possible while typing, possible frustration. Overall minimal effect.
+
+4. *Bug 4:*
+- *Search search works only from the left????*  - ALAN TALK ABOUT THIS ERROR
+- Consequence: Results in possible error to talking to the wrong friend, however the name of the friend is also displayed, so the impact is low. As such the error is mostly cosmetic.
+
+5. *Bug 5:*
+- *No search function to chat to your friend.There is no search function, as such its very dificult to find user to message who owns the post*
+- Consequence: Possible frustration, however in the post the uID of the postee is mentioned, as such emailing is still possible.
+
+6. *Bug 6:*
+- *To chat to your friend, there is no search function, as such its very dificult to find user to message who owns the post*
+- Consequence: Possible frustration, however in the post the uID of the postee is mentioned, as such emailing is still possible.
 
 *List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
 
@@ -272,26 +288,35 @@ Example Use Cases:
 
 ## Implemented Features
 
-*[What features have you implemented?]*
+- - 1 Hard Feature:
+    Provide users with the ability to message each other or an institution directly (e.g., a user can message an event/movement that is managed by another user). (hard) (Done: Paras)
 
-*Here is an example:*
+- - 3 Medium Features:
+    Search functionality can handle partially valid and invalid search queries. (medium) (Done: Alan)
 
-*Privacy*
-1. *Featue 1: Users may ... . (easy)*
-2. *Feature 2: A user must ... . (easy)*
-3. *Feature 3: A user can only ... . (medium)*
+    Use Firebase to persist all data used in your app (this item replaces the requirement to retrieve data from a local file) (medium) (Done: Paras,Alan,Raed,Raymond)
 
-*Firebase Integration*
-1. *Feature 1: Use Firebase to implement ... . (easy)*
-2. *Feature 2: Use Firebase to persist ... .(medium)*
+    The ability to send notifications based on different types of interactions (posts, likes follows, abuse reports, etc). A notification must be sent only after a predetermined number of interactions are set (>= 2 interactions [e.g., one like and one follow or two likes or two follows]). Note that it is not mandatory to use the Android Notification classes. (medium)  (Done - save posts : Raed/Raymond)
+- - 5 Easy Features:
+    Use Firebase to implement user Authentication/Authorisation. (easy) (Done:Paras)
 
-*List all features you have completed in their separate categories with their difficulty classification. If they are features that are suggested and approved, please state this somewhere as well.*
+    The ability to micro-interact with items in your app (e.g. like/dislike/support/report a post/message/event) [stored in-memory]. (easy) (Raymond)
+
+    Process visualisation. Your app may implement a graphical element to visualise the progress of a process/event. (easy) (Done:Paras, Raed)
+
+    UI must have portrait and landscape layout variants as well as support for different screen sizes. Simply using Android studio's automated support for orientation and screen sizes and or creating support without effort to make them look reasonable will net you zero marks. (easy) (Semi Done: Paras,Raed)
+
+    User profile activity containing a media file (image, animation (e.g. gif), video). (easy) (Done:Raed,Paras)
 
 ## Team Meetings
 
 *Here is an example:*
 
-- *[Team Meeting 1](./MeetingTemplate.md)*
-- ...
+- *[Meeting_1](./MeetingTemplate.md)*
+- *[meeting-2](./MeetingTemplate.md)*
+- *[Meeting_3](./MeetingTemplate.md)*
+- *[meeting4](./MeetingTemplate.md)*
+- *[meeting5](./MeetingTemplate.md)*
+
 
 *Either write your meeting minutes here or link to documents that contain them. There must be at least 4 team meetings. Note that you must commit your minute meetings shortly after your meeting has taken place (e.g., within 24h), otherwise your meeting minute will not be accepted.*
