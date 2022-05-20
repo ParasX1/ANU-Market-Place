@@ -196,8 +196,8 @@ as the meeting is taking place on campus and the seller is a student at ANU*
 
 ## Application UML
 
-![ClassDiagramExample](./images/ClassDiagramExample.png)
-*[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
+![Main UML Diagram](https://gitlab.cecs.anu.edu.au/u7298779/comp2100-group_project/-/blob/main/UML_Android.png)
+![Tree UML Diagram](https://gitlab.cecs.anu.edu.au/u7298779/comp2100-group_project/-/blob/main/Tree_UML.PNG)
 
 
 
