@@ -115,7 +115,7 @@ u7291471 , Paras Patange, I contributed __% of the code, Specific contributions 
 - Code design for Saved_Post/Activity2 classes ()
 - Assistance with activity2 (displaying the grid view with the grid items)
 - UI implementation for Activity2(Horizontal), saved_post, activity_user_information and grid item layouts.
-- Report (Intro/Description)
+- Report (Application Use Cases)
 
 u7298779 , Raed Abdulnoor, I contributed __% of the code, Specific contributions are:
   - Classes/Activity:
