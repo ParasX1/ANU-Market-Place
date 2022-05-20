@@ -51,7 +51,9 @@ code:
   - comment: Main Activity/ Login
     url: https://www.youtube.com/watch?v=lF5m4o_CuNg
     licence: Fair Use 
-  - comment: Main Activty/ Login
+  - comment: AVL Tree substring search
+    url: https://stackoverflow.com/questions/19469497/binary-search-tree-for-substrings
+    licence: Creative Commons
 
 
 # add as many "url+licence+comment" entries as necessary
