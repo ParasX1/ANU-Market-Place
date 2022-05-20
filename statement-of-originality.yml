@@ -33,6 +33,26 @@ code:
     url: Tokenizer/Parser lab
     licence: ANU
 
+  - comment: 
+    url: https://github.com/bumptech/glide
+    licence: http://www.apache.org/licenses/LICENSE-2.0
+  - comment: swiping on images glide library for image loading and decoding (and more). used for retrieving images from firebase database
+    url: https://stackoverflow.com/questions/5101629/how-to-swipe-images
+    licence: Creative Commons
+  - comment: Activity2
+    url: https://stackoverflow.com/questions/4583484/how-to-implement-android-pull-to-refresh
+    licence: Creative Commons
+  - comment: Activity2
+    url: https://www.youtube.com/watch?v=8Pv96bvBJL4
+    licence: Creative Commons
+  - comment: Chat Implementation
+    url: Android Lab 2
+    licence: ANU
+  - comment: Main Activity/ Login
+    url: https://www.youtube.com/watch?v=lF5m4o_CuNg
+    licence: Fair Use 
+  - comment: Main Activty/ Login
+
 
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external assets)
