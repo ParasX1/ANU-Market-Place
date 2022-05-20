@@ -75,37 +75,37 @@ Contributions Paras:
 - Report (Intro/Description)
 
 u7291471 , Paras Patange, I contributed __% of the code, Specific contributions are:
-Classes/Activity:
- - MainActivity: 100% Contribution
- - registerUser: 100% Contribution
- - forgotPassword: 100% Contribution
- - MainChat: 100% Contribution
- - MessageActivity: 100% Contribution
- - MessageProfile: 100% Contribution
- - UserAdapter: 100% Contribution
- - MessageAdapter: 100% Contribution
- - Activty2: 10% Contribution Lines()
- - UserInformation: 15% Contribution Lines(41 - 87,)
- - User: 95% Contribution
-UI:
- - ALL LANDSCAPE UI VARIENTS (EXCEPTION:activity_saved_posts)
- - activity_main: 100% Contribution
- - activity_register_user: 100% Contribution
- - activity_forgot_password: 100% Contribution
- - activity_main_chat: 100% Contribution
- - activity_message: 100% Contribution
- - activity_message_profile: 100% Contribution
- - message_holder: 100% Contribution
- - activity_2: 5% (Some error fixes)
- - activity_user_information: 15% Contribution (Lines 10 - 26)
-Design:
- - Suggested AVL Trees, to store/search posts, instead of B tree as AVL is self balancing.
-Report:
-  - Report (Intro/Description)
-Slide Presentation:
-  - Helped in creation (25% contribution)
-Miscellaneous:
-  - Organised some group meetings.
+  - Classes/Activity:
+    - MainActivity: 100% Contribution
+    - registerUser: 100% Contribution
+    - forgotPassword: 100% Contribution
+    - MainChat: 100% Contribution
+    - MessageActivity: 100% Contribution
+    - MessageProfile: 100% Contribution
+    - UserAdapter: 100% Contribution
+    - MessageAdapter: 100% Contribution
+    - Activty2: 10% Contribution Lines()
+    - UserInformation: 15% Contribution Lines(41 - 87,)
+    - User: 95% Contribution
+  - UI:
+    - ALL LANDSCAPE UI VARIENTS (EXCEPTION:activity_saved_posts)
+    - activity_main: 100% Contribution
+    - activity_register_user: 100% Contribution
+    - activity_forgot_password: 100% Contribution
+    - activity_main_chat: 100% Contribution
+    - activity_message: 100% Contribution
+    - activity_message_profile: 100% Contribution
+    - message_holder: 100% Contribution
+    - activity_2: 5% (Some error fixes)
+    - activity_user_information: 15% Contribution (Lines 10 - 26)
+  - Design:
+    - Suggested AVL Trees, to store/search posts, instead of B tree as AVL is self balancing.
+  - Report:
+    - Report (Intro/Description)
+  - Slide Presentation:
+     - Helped in creation (25% contribution)
+  - Miscellaneous:
+     - Organised some group meetings.
 
 
 *[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*
