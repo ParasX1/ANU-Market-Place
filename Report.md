@@ -367,7 +367,7 @@ Non-JUint Testing:
 *Types of tests created: JUnit tests, Black box testing for basic tree, White box testing for findTitle function, assertion tests, timeout tests. Tests outside of JUnit were done for findTitle using random inputs from an AVLtree with titles from firebase.*
 
 *Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
-![AVL Tree Testing](./Testing.png)
+![AVL Tree Testing](https://gitlab.cecs.anu.edu.au/u7298779/comp2100-group_project/-/blob/main/Testing.PNG)
 
 ## Implemented Features
 
