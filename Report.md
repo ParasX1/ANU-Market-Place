@@ -33,7 +33,7 @@ The following is a report template to help your team successfully provide all th
 | UID | Name | Role |
 | :--- | :----: | ---: |
 | u7291471 | Paras Patange | Login/Chat Developer |
-| [uid] | Raymond Improgo | [role] |
+| u7282825 | Raymond Improgo | Post creation / displaying |
 | u7315765 | Alan Biju | Advanced Search/ UI |
 | [U7298779] | Raed Abdulnoor | [UI / SavedPost Developer] |
 
@@ -154,6 +154,9 @@ Contributions Raymond:
 - Implementation of Post object creation
 - Saving Posts too firebase database 
 - Assistance in activity2 implementation (displaying the grid view with the Post opbects)
+- Retrieval of posts from database, configuring gridview adapter to display posts
+- Individual Post's pages implementation, passing through Post data
+- Debugging crashes and errors
 
 u7282825 , Raymond Improgo, I contributed __% of the code, Specific contributions are:
   - Classes/Activity:
@@ -380,7 +383,7 @@ Non-JUint Testing:
 - - 5 Easy Features:
     Use Firebase to implement user Authentication/Authorisation. (easy) (Done:Paras)
 
-    The ability to micro-interact with items in your app (e.g. like/dislike/support/report a post/message/event) [stored in-memory]. (easy) (Raymond)
+    The ability to micro-interact with items in your app (e.g. like/dislike/support/report a post/message/event) [stored in-memory]. (easy) (Raed (saving posts))
 
     Process visualisation. Your app may implement a graphical element to visualise the progress of a process/event. (easy) (Done:Paras, Raed)
 
