@@ -1,4 +1,4 @@
-# [Team Name] Report
+# PineAPPLE Report
 
 The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
 
@@ -131,13 +131,22 @@ Miscellaneous:
 
 ## Conflict Resolution Protocol
 
-The conflict resolution protocal was voting, we all would take turns in verbally explaining reasoning for what we should do:
+The conflict resolution protocal was voting, we all would take turns in verbally explaining reasoning for what we should do, and why we should do it. Overall this was a effective method of resolving conflicts, we did not have many, but a example of effective conflict resolution was when we decided to use AVL tree for searching in comparison, the reasons for it was easy to understand (we have done it in lab), and was self balancing hence reducing code, as we would not need to write rebalancing code for the tree. The reason against was that it was slightly slower. With a vote, we decided for the positive reasons we should do a AVLtree. Another example was what way shall we construct the User factory class, as this class was responsible for creating/ storing important information to the database, as such we planned out and saw what requirements we all had for each of our parts and then after we combined/adapted it.
 
-e.g. AVL tree,....
+Following the method above we were able to resolve all conflicts effectively, and without any problems.
 
 *[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem? (If you choose to make this an external document, link to it here)]*
 
 ## Application Description
+
+ANU Marketplace as mentioned above is a media application, directly targetting all students/staff of ANU who are in need of 2nd hand goods. It provides a safe ANU only enviroment in which any student, even those who are new to Australia (International Students) a place to buy/sell 2nd hand goods. In other buy/sell applications there is a large threat of unsecure transactions, scams and even trolling, by restricting the user base to just ANU we can minimise all these problems, as registration of a user requires a UID, Full Name and Email.
+
+Example Use Cases:
+1.  
+2. 
+3. 
+4. 
+
 
 *[What is your application, what does it do? Include photos or diagrams if necessary]*
 
