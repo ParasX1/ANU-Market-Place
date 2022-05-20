@@ -31,12 +31,15 @@ The following is a report template to help your team successfully provide all th
 
 | UID | Name | Role |
 | :--- | :----: | ---: |
-| u7291471 | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
+| u7291471 | Paras Patange | Login/Chat Developer |
+| [uid] | Raymond Improgo | [role] |
+| [uid] | Alan Biju | [role] |
+| [uid] | Raed Abdulnoor | [role] |
 
 ## Summary of Individual Contributions
+
+Contributions Paras:
+ - jjf
 
 *[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*
 
