@@ -289,7 +289,8 @@ as the meeting is taking place on campus and the seller is a student at ANU*
 
 *[What design patterns did your team utilise? Where and why?]*
 Factory:
-  The User class is a factory method which produces different instances of User
+  The User class is a factory method which produces different instances of User. This is because User needs to create multiple objects with
+  different properties.
 
 Singleton:
   A singleton design pattern was used in the Parser.java class. This is because only one instance of parser is ever necessary. You are not going to
@@ -357,13 +358,13 @@ Non-JUint Testing:
 
 *[What features have you tested? What is your testing coverage?]*
 
-*Here is an example:*
+*AVL Tree Testing:*
 
-*Number of test cases: ...*
+*Number of test cases: 8*
 
-*Code coverage: ...*
+*Code coverage: Tests whether it's immutable, single left/right rotations, double rotations, checking balance of tree, checking duplicates and checking some cases of findTitle. Branch Complete.*
 
-*Types of tests created: ...*
+*Types of tests created: JUnit tests, Black box testing for basic tree, White box testing for findTitle function, assertion tests, timeout tests. Tests outside of JUnit were done for findTitle using random inputs from an AVLtree with titles from firebase.*
 
 *Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
 
