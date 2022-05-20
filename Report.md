@@ -62,7 +62,7 @@ Contributions Paras:
 - User object creation (Storing important information, such as Name,Email, Uid, Password, Profile Picture and )
 - Report (Intro/Description)
 
-u7291471 , Paras Patange, I contributed __% of the code, Specific contributions are:
+u7291471 , Paras Patange, I contributed 25% of the code, Specific contributions are:
   - Classes/Activity:
     - MainActivity: 100% Contribution
     - registerUser: 100% Contribution
@@ -99,7 +99,7 @@ u7291471 , Paras Patange, I contributed __% of the code, Specific contributions 
 - UI implementation for Activity2(Horizontal), saved_post, activity_user_information and grid item layouts.
 - Report (Application Use Cases)
 
-u7298779 , Raed Abdulnoor, I contributed __% of the code, Specific contributions are:
+u7298779 , Raed Abdulnoor, I contributed 25% of the code, Specific contributions are:
   - Classes/Activity:
     - UserInformation: 85% contribution
     - ImageAdapter2: 100% contribution
@@ -121,7 +121,7 @@ u7298779 , Raed Abdulnoor, I contributed __% of the code, Specific contributions
 - Implemented AVL tree with function for searching
 - Report (Application Designs and Decisions)
 
-u7315765 , Alan Biju, I contributed __% of the code, Specific contributions are:
+u7315765 , Alan Biju, I contributed 25% of the code, Specific contributions are:
   - Classes/Activity:
     - Tree/AVLtree/BinarySearchTree/EmptyTree: 100% contribution
     - Adapter: 20% contribution
@@ -143,7 +143,7 @@ Contributions Raymond:
 - Individual Post's pages implementation, passing through Post data
 - Debugging crashes and errors
 
-u7282825 , Raymond Improgo, I contributed __% of the code, Specific contributions are:
+u7282825 , Raymond Improgo, I contributed 25% of the code, Specific contributions are:
   - Classes/Activity:
     - CreatePostActivity: 100%
     - Posts: 100%
