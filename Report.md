@@ -1,19 +1,5 @@
 # PineAPPLE Report
 
-The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
-
-*Here are some tips to write a good report:*
-
-* *Try to summarise and list the `bullet points` of your project as many as possible rather than give long, tedious paragraphs that mix up everything together.*
-
-* *Try to create `diagrams` instead of text descriptions, which are more straightforward and explanatory.*
-
-* *Try to make your report `well structured`, which is easier for the reviewers to capture the necessary information.*
-
-*We give instructions enclosed in square brackets [...] and examples for each sections to demonstrate what are expected for your project report.*
-
-*Please remove the instructions or examples in `italic` in your final report.*
-
 ## Table of Contents
 
 1. [Team Members and Roles](#team-members-and-roles)
@@ -172,56 +158,21 @@ u7282825 , Raymond Improgo, I contributed __% of the code, Specific contribution
     - activity_create_post.xml: 100%
 
 
-
-*[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*
-
-*[Code Implementation. Which features did you implement? Which classes or methods was each member involved in? Provide an approximate proportion in pecentage of the contribution of each member to the whole code implementation, e.g. 30%.]*
-
-*Here is an example:*
-
-*UID1, Name1, I contribute 30% of the code. Here are my contributions:*
-* A.class
-* B.class: function1(), function2(), ...
-* ....
-
-*[Code Design. What design patterns, data structures, did the involved member propose?]*
-
-*[UI Design. Specify what design did the involved member propose? What tools were used for the design?]*
-
-*[Report Writing. Which part of the report did the involved member write?]*
-
-*[Slide preparation. Were you responsible for the slides?]*
-
-*[Miscellaneous contributions. You are welcome to provide anything that you consider as a contribution to the project or team.]*
-
-
-
-
 ## Conflict Resolution Protocol
 
 The conflict resolution protocal was voting, we all would take turns in verbally explaining reasoning for what we should do, and why we should do it. Overall this was a effective method of resolving conflicts, we did not have many, but a example of effective conflict resolution was when we decided to use AVL tree for searching in comparison, the reasons for it was easy to understand (we have done it in lab), and was self balancing hence reducing code, as we would not need to write rebalancing code for the tree. The reason against was that it was slightly slower. With a vote, we decided for the positive reasons we should do a AVLtree. Another example was what way shall we construct the User factory class, as this class was responsible for creating/ storing important information to the database, as such we planned out and saw what requirements we all had for each of our parts and then after we combined/adapted it.
 
 Following the method above we were able to resolve all conflicts effectively, and without any problems.
 
-*[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem? (If you choose to make this an external document, link to it here)]*
-
-
-
-
 
 ## Application Description
 
 ANU Marketplace as mentioned above is a media application, directly targetting all students/staff of ANU who are in need of 2nd hand goods. It provides a safe ANU only enviroment in which any student, even those who are new to Australia (International Students) a place to buy/sell 2nd hand goods. In other buy/sell applications there is a large threat of unsecure transactions, scams and even trolling, by restricting the user base to just ANU we can minimise all these problems, as registration of a user requires a UID, Full Name and Email.
 
-
-
-
 **Application Use Cases and or Examples**
 
 1. John want to purchase a Jacket in a safe enviroment  
 2. Cate want to purchase a Laptop without being scammed or manipulated
-
-
 
 *John want to purchase a Jacket in a safe enviroment *
 1. *John wants to purchase a Jacket in a safe enviroment.*
@@ -231,7 +182,6 @@ ANU Marketplace as mentioned above is a media application, directly targetting a
 5. *John then starts messaging Tom and they negotiate a price.*
 6. *After a price is negotiated they choose a safe location to meet which is on campus.*
 7. *John and Tom safely meet and the purchase of the Jacket is successful.*
-
 
 *Cate want to purchase a Laptop without being scammed or manipulated*
 1. *Cate wants to purchase a laptop with out getting scammed*
@@ -252,9 +202,7 @@ as the meeting is taking place on campus and the seller is a student at ANU*
 
 ## Application Design and Decisions
 
-*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design. Here is an example for the subsection `Data Structures`:*
-
-*I used the following data structures in my project:*
+*We used the following data structures in my project:*
 
 1. *AVLtree*
 
@@ -285,7 +233,6 @@ as the meeting is taking place on campus and the seller is a student at ANU*
      * *Allows easy recall of objects using this title*
      
      * *Avoids using two seperate structures*
-
 
 3. ...
 
@@ -357,10 +304,6 @@ I use the tokenisers and parsers in Activity2.java where the search is implement
 Non-JUint Testing:
   - Visual Testing was conducted for Landsacpe orientation UI. (Pixel 2, 2XL, 3aXL, 3XL)
   - Visual Testing was conducted for Chat/Login Implementation. (Pixel 2, 2XL, 3aXL, 3XL) (Low coverage,4 Test Devices)
-
-
-
-*[What features have you tested? What is your testing coverage?]*
 
 *AVL Tree Testing:*
 
