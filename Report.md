@@ -110,6 +110,28 @@ u7291471 , Paras Patange, I contributed __% of the code, Specific contributions 
      - Organised some group meetings.
 
 
+ Contributions Raed:
+- Code Implementation/ Design for the saved user posts
+- Code design for Saved_Post/Activity2 classes ()
+- Assistance with activity2 (displaying the grid view with the grid items)
+- UI implementation for Activity2(Horizontal), saved_post, activity_user_information and grid item layouts.
+- Report (Intro/Description)
+
+u7298779 , Raed Abdulnoor, I contributed __% of the code, Specific contributions are:
+  - Classes/Activity:
+    - UserInformation: 85% contribution
+    - ImageAdapter2: 100% contribution
+    - Activity2: 60% contribution Overlap
+    - savedPosts: 100% contribution
+
+  - UI:  
+    - Activity 2 Horizontal layout 100% contribution
+    - activity_saved_posts layout 100% contribution
+    - activity_user_information layout 100% contribution
+    - grid_item xml layout 100% contribution
+       
+
+
 
 
 
