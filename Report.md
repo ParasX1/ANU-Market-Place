@@ -84,7 +84,7 @@ u7291471 , Paras Patange, I contributed __% of the code, Specific contributions 
     - MessageProfile: 100% Contribution
     - UserAdapter: 100% Contribution
     - MessageAdapter: 100% Contribution
-    - Activty2: 10% Contribution Lines()
+    - Activty2: 5% Contribution Lines(Refresh)
     - UserInformation: 15% Contribution Lines(41 - 87,)
     - User: 95% Contribution
   - UI:
