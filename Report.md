@@ -35,7 +35,7 @@ The following is a report template to help your team successfully provide all th
 | u7291471 | Paras Patange | Login/Chat Developer |
 | [uid] | Raymond Improgo | [role] |
 | [uid] | Alan Biju | [role] |
-| [uid] | Raed Abdulnoor | [role] |
+| [U7298779] | Raed Abdulnoor | [UI / SavedPost Developer] |
 
 ## Basic Description and Features Of Our App
 Our App:
