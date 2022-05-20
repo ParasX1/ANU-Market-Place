@@ -176,46 +176,34 @@ Following the method above we were able to resolve all conflicts effectively, an
 
 ANU Marketplace as mentioned above is a media application, directly targetting all students/staff of ANU who are in need of 2nd hand goods. It provides a safe ANU only enviroment in which any student, even those who are new to Australia (International Students) a place to buy/sell 2nd hand goods. In other buy/sell applications there is a large threat of unsecure transactions, scams and even trolling, by restricting the user base to just ANU we can minimise all these problems, as registration of a user requires a UID, Full Name and Email.
 
-Example Use Cases:
-1.  
-2. 
-3. 
-4. 
 
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
-
-*Here is a pet specific application example*
-
-*PetBook is a social media application specifically targetting pet owners... it provides... certified practitioners, such as veterians are indicated by a label next to their profile...*
 
 **Application Use Cases and or Examples**
 
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
+1. John want to purchase a Jacket in a safe enviroment  
+2. Cate want to purchase a Laptop without being scammed or manipulated
 
-*Here is a pet training application example*
 
-*Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
-1. *Molly notices that McPurr has been hostile since...*
-2. *She makes a post about... with the tag...*
-3. *Lachlan, a vet, writes a reply to Molly's post...*
-4. ...
-5. *Molly gives Lachlan's reply a 'tick' response*
 
-*Here is a map navigation application example*
+*John want to purchase a Jacket in a safe enviroment *
+1. *John wants to purchase a Jacket in a safe enviroment.*
+2. *He chooses to use ANU Marketplace as it allows him to trade with fellow trust worthy students at ANU.*
+3. *John browses the posts and filters by clothing.*
+4. *He then finds a jacket belonging to Tom which he likes.*
+5. *John then starts messaging Tom and they negotiate a price.*
+6. *After a price is negotiated they choose a safe location to meet which is on campus.*
+7. *John and Tom safely meet and the purchase of the Jacket is successful.*
 
-*Targets Users: Drivers*
 
-* *Users can use it to navigate in order to reach the destinations.*
-* *Users can learn the traffic conditions*
-* ...
-
-*Target Users: Those who want to find some good restaurants*
-
-* *Users can find nearby restaurants and the application can give recommendations*
-* ...
-
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+*Cate want to purchase a Laptop without being scammed or manipulated*
+1. *Cate wants to purchase a laptop with out getting scammed*
+2. *Cate chooses to use anu Marketplace as all the users are fellow students, hence scamming is unlikely.*
+3. *Cate browses the posts and finds a laptop belonging to Robert which looks appropriate for her needs.*
+4. *Cate then starts messaging Robert and they negotiate a price.*
+5. *After a price is negotiated they choose a safe location to meet which is on campus. Cate is also less likely to get scammed
+as the meeting is taking place on campus and the seller is a student at ANU*
+6. *Cate and Robert safely meet and the purchase of the Laptop is successful.*
 
 
 ## Application UML
