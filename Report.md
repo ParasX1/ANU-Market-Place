@@ -264,12 +264,8 @@ We designed the grammar for the search function so we had to think about how it 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 I use the tokenisers and parsers in Activity2.java where the search is implemented. This design allows us to use a try/catch clause to let the user know whenever the search they made violated the grammar. With this informative message, the user is able to change their search so that it successfully parses and our program can interpret the search.
 
-**Other**
-
 
 ## Summary of Known Errors and Bugs
-
-*Here is an example:*
 
 1. *Bug 1:*
 - *During signup the UID can be manipulated, in a non acceptable way, if you fill out the registration fast enough it will allow non-acceptable variations such as u2093092, or -320433, a basic password check function has been implmented*
